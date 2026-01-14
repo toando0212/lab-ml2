@@ -1,0 +1,14 @@
+| Feature              | Discrete/Continuous   | Quantitative/Qualitative   | Explanation                                   |
+|:---------------------|:----------------------|:---------------------------|:----------------------------------------------|
+| fixed acidity        | Continuous            | Quantitative               | Float type, 91 unique values.                 |
+| volatile acidity     | Continuous            | Quantitative               | Float type, 135 unique values.                |
+| citric acid          | Continuous            | Quantitative               | Float type, 77 unique values.                 |
+| residual sugar       | Continuous            | Quantitative               | Float type, 80 unique values.                 |
+| chlorides            | Continuous            | Quantitative               | Float type, 131 unique values.                |
+| free sulfur dioxide  | Continuous            | Quantitative               | Float type, 53 unique values.                 |
+| total sulfur dioxide | Continuous            | Quantitative               | Float type, 138 unique values.                |
+| density              | Continuous            | Quantitative               | Float type, 388 unique values.                |
+| pH                   | Continuous            | Quantitative               | Float type, 87 unique values.                 |
+| sulphates            | Continuous            | Quantitative               | Float type, 89 unique values.                 |
+| alcohol              | Continuous            | Quantitative               | Float type, 61 unique values.                 |
+| quality              | Discrete              | Quantitative               | Integer, only 6 distinct values (Categories). |

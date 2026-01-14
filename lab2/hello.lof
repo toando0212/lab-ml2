@@ -1,0 +1,6 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Elbow Method analysis for ISOLET dataset showing Inertia versus $k$.}}{3}{figure.caption.6}%
+\contentsline {figure}{\numberline {2}{\ignorespaces External validation metrics (NMI and ARI) for ISOLET dataset.}}{3}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Elbow Method analysis for Mice Protein dataset.}}{4}{figure.caption.11}%
+\contentsline {figure}{\numberline {4}{\ignorespaces External validation metrics (NMI and ARI) for Mice Protein dataset.}}{5}{figure.caption.12}%
+\contentsline {figure}{\numberline {5}{\ignorespaces PCA 2D Projection (Variance: $\approx 17\%$)}}{6}{figure.caption.15}%
+\contentsline {figure}{\numberline {6}{\ignorespaces PCA 3D Projection (Variance: $\approx 22\%$)}}{6}{figure.caption.15}%

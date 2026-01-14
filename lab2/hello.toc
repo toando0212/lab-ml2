@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}K-means Clustering}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Experimental Protocol}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Dataset Selection}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Data Preprocessing}{1}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Algorithm Configuration}{1}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Centroid Initialization}{2}{subsection.1.2}%
+\contentsline {paragraph}{Mechanism.}{2}{section*.4}%
+\contentsline {subsection}{\numberline {1.3}Results Analysis and Comparison}{2}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Analysis of ISOLET Dataset}{2}{subsubsection.1.3.1}%
+\contentsline {paragraph}{Observation.}{3}{section*.8}%
+\contentsline {paragraph}{Selection of Optimal k.}{3}{section*.9}%
+\contentsline {subsubsection}{\numberline {1.3.2}Analysis of Mice Protein Dataset}{4}{subsubsection.1.3.2}%
+\contentsline {paragraph}{Observation.}{5}{section*.13}%
+\contentsline {paragraph}{Selection of Optimal k.}{5}{section*.14}%
+\contentsline {subsection}{\numberline {1.4}Clustering Quality Assessment and Conclusion}{5}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Subspace Clustering}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dataset Selection}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}PCA Visualization}{6}{subsection.2.2}%
+\contentsline {paragraph}{Observation.}{6}{section*.16}%
+\contentsline {subsection}{\numberline {2.3}Clustering on PCA-Reduced Data}{6}{subsection.2.3}%
+\contentsline {paragraph}{Analysis.}{7}{section*.18}%
+\contentsline {subsection}{\numberline {2.4}Clustering on Random Subspace}{7}{subsection.2.4}%
+\contentsline {paragraph}{Discussion.}{7}{section*.20}%
+\contentsline {paragraph}{Why does this happen?}{7}{section*.21}%
