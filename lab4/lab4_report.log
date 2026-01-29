@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  14 JAN 2026 13:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  25 JAN 2026 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**hello.tex
-(./hello.tex
+**lab4_report.tex
+(./lab4_report.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -586,29 +586,29 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box58
 )
-(./hello.aux)
-\openout1 = `hello.aux'.
+(./lab4_report.aux)
+\openout1 = `lab4_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -671,22 +671,22 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 56.
-(./hello.out) (./hello.out)
+Package hyperref Info: Link coloring ON on input line 57.
+(./lab4_report.out) (./lab4_report.out)
 \@outlinefile=\write3
-\openout3 = `hello.out'.
+\openout3 = `lab4_report.out'.
 
-<usth.png, id=64, 1204.5pt x 602.25pt>
-File: usth.png Graphic file (type png)
-<use usth.png>
-Package pdftex.def Info: usth.png  used on input line 62.
+<../lab3/usth.png, id=84, 1204.5pt x 602.25pt>
+File: ../lab3/usth.png Graphic file (type png)
+<use ../lab3/usth.png>
+Package pdftex.def Info: ../lab3/usth.png  used on input line 63.
 (pdftex.def)             Requested size: 290.22107pt x 145.1127pt.
 
 
 [1
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./usth.
-png>] (./hello.toc
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../lab3
+/usth.png>] (./lab4_report.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -698,117 +698,159 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write4
-\openout4 = `hello.toc'.
+\openout4 = `lab4_report.toc'.
 
 
 
-[1] (./hello.lot)
+[1] (./lab4_report.lot)
 \tf@lot=\write5
-\openout5 = `hello.lot'.
+\openout5 = `lab4_report.lot'.
 
- (./hello.lof)
+ (./lab4_report.lof)
 \tf@lof=\write6
-\openout6 = `hello.lof'.
+\openout6 = `lab4_report.lof'.
 
 
 
 [2]
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 9
-1.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/vntex/t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
+<./results/Mice_Protein_dist.png, id=153, 722.7pt x 433.62pt>
+File: ./results/Mice_Protein_dist.png Graphic file (type png)
+<use ./results/Mice_Protein_dist.png>
+Package pdftex.def Info: ./results/Mice_Protein_dist.png  used on input line 11
+7.
+(pdftex.def)             Requested size: 232.17242pt x 139.30379pt.
+<./results/Isolet_dist.png, id=155, 722.7pt x 433.62pt>
+File: ./results/Isolet_dist.png Graphic file (type png)
+<use ./results/Isolet_dist.png>
+Package pdftex.def Info: ./results/Isolet_dist.png  used on input line 124.
+(pdftex.def)             Requested size: 232.17242pt x 139.30379pt.
+
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.118 \paragraph
-                {Mechanism.} Unlike uniform random initialization, k-means++...
+l.133     \item \textbf
+                       {ISOLET:} The clusters are tightly packed with signif...
 [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}]
-<isolet/elbow_curve.png, id=130, 578.16pt x 361.35pt>
-File: isolet/elbow_curve.png Graphic file (type png)
-<use isolet/elbow_curve.png>
-Package pdftex.def Info: isolet/elbow_curve.png  used on input line 153.
-(pdftex.def)             Requested size: 362.77264pt x 226.73091pt.
-
-
-[2]
-<isolet/external_metrics.png, id=143, 722.7pt x 433.62pt>
-File: isolet/external_metrics.png Graphic file (type png)
-<use isolet/external_metrics.png>
-Package pdftex.def Info: isolet/external_metrics.png  used on input line 160.
-(pdftex.def)             Requested size: 362.77264pt x 217.663pt.
-
-
-[3 <./isolet/elbow_curve.png> <./isolet/external_metrics.png>]
-<mice_protein/elbow_curve.png, id=154, 578.16pt x 361.35pt>
-File: mice_protein/elbow_curve.png Graphic file (type png)
-<use mice_protein/elbow_curve.png>
-Package pdftex.def Info: mice_protein/elbow_curve.png  used on input line 192.
-(pdftex.def)             Requested size: 362.77264pt x 226.73091pt.
-<mice_protein/external_metrics.png, id=155, 722.7pt x 433.62pt>
-File: mice_protein/external_metrics.png Graphic file (type png)
-<use mice_protein/external_metrics.png>
-Package pdftex.def Info: mice_protein/external_metrics.png  used on input line 
-199.
-(pdftex.def)             Requested size: 362.77264pt x 217.663pt.
-
-
-[4 <./mice_protein/elbow_curve.png>]
-
-[5 <./mice_protein/external_metrics.png>]
-<isolet/pca_2d_ground_truth.png, id=171, 722.7pt x 578.16pt>
-File: isolet/pca_2d_ground_truth.png Graphic file (type png)
-<use isolet/pca_2d_ground_truth.png>
-Package pdftex.def Info: isolet/pca_2d_ground_truth.png  used on input line 231
+} <./results/Mice_Protein_dist.png> <./results/Isolet_dist.png>]
+<./results/Mice_Protein_pca.png, id=168, 722.7pt x 578.16pt>
+File: ./results/Mice_Protein_pca.png Graphic file (type png)
+<use ./results/Mice_Protein_pca.png>
+Package pdftex.def Info: ./results/Mice_Protein_pca.png  used on input line 140
 .
 (pdftex.def)             Requested size: 232.17242pt x 185.73837pt.
-<isolet/pca_3d_ground_truth.png, id=172, 867.24pt x 722.7pt>
-File: isolet/pca_3d_ground_truth.png Graphic file (type png)
-<use isolet/pca_3d_ground_truth.png>
-Package pdftex.def Info: isolet/pca_3d_ground_truth.png  used on input line 236
+<./results/Isolet_pca.png, id=169, 722.7pt x 578.16pt>
+File: ./results/Isolet_pca.png Graphic file (type png)
+<use ./results/Isolet_pca.png>
+Package pdftex.def Info: ./results/Isolet_pca.png  used on input line 147.
+(pdftex.def)             Requested size: 232.17242pt x 185.73837pt.
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
+54.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/vntex/t5cmtt.fd
+File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+
+[2 <./results/Mice_Protein_pca.png> <./results/Isolet_pca.png>]
+Overfull \hbox (11.61131pt too wide) in paragraph at lines 180--181
+ []\T5/cmr/bx/n/12 Entropy (In-for-ma-tion Gain).[] \T5/cmr/m/n/12 Al-ter-na-ti
+vely, En-tropy mea-sures the un-cer-tainty in the dataset. 
+ []
+
+<./results/Mice_Protein_dt_struct.png, id=185, 1445.4pt x 722.7pt>
+File: ./results/Mice_Protein_dt_struct.png Graphic file (type png)
+<use ./results/Mice_Protein_dt_struct.png>
+Package pdftex.def Info: ./results/Mice_Protein_dt_struct.png  used on input li
+ne 191.
+(pdftex.def)             Requested size: 435.32422pt x 217.66078pt.
+<./results/Isolet_dt_struct.png, id=186, 1445.4pt x 722.7pt>
+File: ./results/Isolet_dt_struct.png Graphic file (type png)
+<use ./results/Isolet_dt_struct.png>
+Package pdftex.def Info: ./results/Isolet_dt_struct.png  used on input line 198
 .
-(pdftex.def)             Requested size: 232.17242pt x 193.47748pt.
+(pdftex.def)             Requested size: 435.32422pt x 217.66078pt.
 
 
-[6 <./isolet/pca_2d_ground_truth.png> <./isolet/pca_3d_ground_truth.png>]
+[3 <./results/Mice_Protein_dt_struct.png>]
 
-[7] (./hello.aux)
+[4 <./results/Isolet_dt_struct.png>]
+<./results/Mice_Protein_dt_cm.png, id=215, 722.7pt x 578.16pt>
+File: ./results/Mice_Protein_dt_cm.png Graphic file (type png)
+<use ./results/Mice_Protein_dt_cm.png>
+Package pdftex.def Info: ./results/Mice_Protein_dt_cm.png  used on input line 2
+53.
+(pdftex.def)             Requested size: 290.22107pt x 232.17738pt.
+<./results/Isolet_dt_cm.png, id=216, 722.7pt x 578.16pt>
+File: ./results/Isolet_dt_cm.png Graphic file (type png)
+<use ./results/Isolet_dt_cm.png>
+Package pdftex.def Info: ./results/Isolet_dt_cm.png  used on input line 260.
+(pdftex.def)             Requested size: 338.58632pt x 270.87068pt.
+
+
+[5 <./results/Mice_Protein_dt_cm.png>]
+
+[6 <./results/Isolet_dt_cm.png>]
+<./results/Mice_Protein_rf_conv.png, id=232, 722.7pt x 433.62pt>
+File: ./results/Mice_Protein_rf_conv.png Graphic file (type png)
+<use ./results/Mice_Protein_rf_conv.png>
+Package pdftex.def Info: ./results/Mice_Protein_rf_conv.png  used on input line
+ 289.
+(pdftex.def)             Requested size: 232.17242pt x 139.30379pt.
+<./results/Isolet_rf_conv.png, id=233, 722.7pt x 433.62pt>
+File: ./results/Isolet_rf_conv.png Graphic file (type png)
+<use ./results/Isolet_rf_conv.png>
+Package pdftex.def Info: ./results/Isolet_rf_conv.png  used on input line 296.
+(pdftex.def)             Requested size: 232.17242pt x 139.30379pt.
+
+
+[7 <./results/Mice_Protein_rf_conv.png> <./results/Isolet_rf_conv.png>]
+<./results/Mice_Protein_rf_features.png, id=244, 867.24pt x 578.16pt>
+File: ./results/Mice_Protein_rf_features.png Graphic file (type png)
+<use ./results/Mice_Protein_rf_features.png>
+Package pdftex.def Info: ./results/Mice_Protein_rf_features.png  used on input 
+line 349.
+(pdftex.def)             Requested size: 386.95897pt x 257.97292pt.
+<./results/Isolet_rf_features.png, id=245, 867.24pt x 578.16pt>
+File: ./results/Isolet_rf_features.png Graphic file (type png)
+<use ./results/Isolet_rf_features.png>
+Package pdftex.def Info: ./results/Isolet_rf_features.png  used on input line 3
+56.
+(pdftex.def)             Requested size: 386.95897pt x 257.97292pt.
+
+
+[8 <./results/Mice_Protein_rf_features.png> <./results/Isolet_rf_features.png>]
+(./lab4_report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `hello.out' has not changed.
-(rerunfilecheck)             Checksum: 5B266F11045F9B8C7E00B5C277522B5A;3155.
+Package rerunfilecheck Info: File `lab4_report.out' has not changed.
+(rerunfilecheck)             Checksum: 8D75B5843A102F7BA07A8C6E580F8137;5324.
  ) 
 Here is how much of TeX's memory you used:
- 14436 strings out of 473190
- 222789 string characters out of 5715800
- 627767 words of memory out of 5000000
- 37454 multiletter control sequences out of 15000+600000
- 570812 words of font info for 63 fonts, out of 8000000 for 9000
+ 14537 strings out of 473190
+ 225843 string characters out of 5715800
+ 629063 words of memory out of 5000000
+ 37533 multiletter control sequences out of 15000+600000
+ 571936 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1175b,483s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,494b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
 usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/l
 ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
-texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
-xlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb></usr/local/texlive/2025/texmf-dist
-/fonts/type1/vntex/vnr/vnti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
-e1/vntex/vnr/vntt12.pfb>
-Output written on hello.pdf (10 pages, 5318652 bytes).
+cal/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on lab4_report.pdf (11 pages, 1416942 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 316 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,12 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Class Distribution (Mice Protein)}}{1}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Class Distribution (Isolet)}}{1}{figure.caption.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces PCA Projection (Mice Protein)}}{2}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces PCA Projection (Isolet)}}{2}{figure.caption.7}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Structure of the Decision Tree (Depth=3) for Mice Protein.}}{3}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Structure of the Decision Tree (Depth=3) for Isolet.}}{4}{figure.caption.11}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Confusion Matrix (DT) - Mice Protein}}{5}{figure.caption.18}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Confusion Matrix (DT) - Isolet}}{6}{figure.caption.19}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Error vs Trees (Mice)}}{7}{figure.caption.22}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Error vs Trees (Isolet)}}{7}{figure.caption.22}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Top 20 Feature Importance (Mice Protein)}}{8}{figure.caption.28}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Top 20 Feature Importance (Isolet)}}{8}{figure.caption.29}%

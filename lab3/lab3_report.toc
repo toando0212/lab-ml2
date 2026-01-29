@@ -1,0 +1,91 @@
+\contentsline {section}{\numberline {1}K-nearest neighbor classification}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Select two datasets with labels}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Run K-NN on these two datasets and calculate classification error}{1}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Methodology and Algorithm Description}{1}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Implementation Details}{1}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Performance Metric: Accuracy and Error calculation}{1}{subsubsection.1.2.3}%
+\contentsline {paragraph}{Formulation 1: Indicator Function.}{2}{section*.4}%
+\contentsline {paragraph}{Formulation 2: Confusion Matrix Components.}{2}{section*.5}%
+\contentsline {paragraph}{Implementation.}{2}{section*.6}%
+\contentsline {subsubsection}{\numberline {1.2.4}Experimental Results}{2}{subsubsection.1.2.4}%
+\contentsline {paragraph}{Analysis.}{2}{section*.8}%
+\contentsline {paragraph}{Interpretation.}{3}{section*.9}%
+\contentsline {subsubsection}{\numberline {1.2.5}Confusion Matrix Analysis}{3}{subsubsection.1.2.5}%
+\contentsline {paragraph}{Observations from Confusion Matrices.}{4}{section*.12}%
+\contentsline {subsection}{\numberline {1.3}Vary the value of k, comment on the results}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Theoretical Background}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Experimental Setup}{5}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Analysis and Interpretation}{6}{subsubsection.1.3.3}%
+\contentsline {paragraph}{Mice Protein Dataset.}{6}{section*.17}%
+\contentsline {paragraph}{Isolet Dataset.}{7}{section*.18}%
+\contentsline {subsubsection}{\numberline {1.3.4}Optimal k Selection}{7}{subsubsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.4}Try to normalize the input dataset, is the performance better?}{7}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Motivation and Theoretical Background}{7}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Normalization Method}{7}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Experimental Results}{8}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Analysis and Interpretation}{8}{subsubsection.1.4.4}%
+\contentsline {paragraph}{Mice Protein Dataset.}{8}{section*.20}%
+\contentsline {paragraph}{Isolet Dataset.}{8}{section*.21}%
+\contentsline {paragraph}{Practical Implications.}{8}{section*.22}%
+\contentsline {subsection}{\numberline {1.5}Apply PCA and SVD on the dataset}{8}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Theoretical Background}{8}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Experimental Setup}{9}{subsubsection.1.5.2}%
+\contentsline {paragraph}{Implementation.}{9}{section*.23}%
+\contentsline {subsubsection}{\numberline {1.5.3}Dimensionality Reduction Results}{10}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Analysis and Interpretation}{10}{subsubsection.1.5.4}%
+\contentsline {paragraph}{Mice Protein Dataset.}{10}{section*.27}%
+\contentsline {paragraph}{Isolet Dataset.}{10}{section*.28}%
+\contentsline {paragraph}{Computational Benefits.}{11}{section*.29}%
+\contentsline {subsection}{\numberline {1.6}Propose an approach to improve performance with K-cross validation}{11}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Motivation and Theoretical Background}{11}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Experimental Results}{11}{subsubsection.1.6.2}%
+\contentsline {paragraph}{Implementation.}{11}{section*.30}%
+\contentsline {subsubsection}{\numberline {1.6.3}Analysis and Interpretation}{11}{subsubsection.1.6.3}%
+\contentsline {paragraph}{Mice Protein Dataset.}{11}{section*.32}%
+\contentsline {paragraph}{Isolet Dataset.}{12}{section*.33}%
+\contentsline {paragraph}{Practical Implications.}{12}{section*.34}%
+\contentsline {subsection}{\numberline {1.7}Apply leave-one-out and calculate the error}{12}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Theoretical Background}{12}{subsubsection.1.7.1}%
+\contentsline {paragraph}{Advantages and Disadvantages.}{12}{section*.35}%
+\contentsline {subsubsection}{\numberline {1.7.2}Experimental Results}{12}{subsubsection.1.7.2}%
+\contentsline {paragraph}{Implementation.}{12}{section*.36}%
+\contentsline {subsubsection}{\numberline {1.7.3}Analysis and Interpretation}{13}{subsubsection.1.7.3}%
+\contentsline {paragraph}{Mice Protein Dataset.}{13}{section*.38}%
+\contentsline {paragraph}{Practical Implications.}{13}{section*.39}%
+\contentsline {section}{\numberline {2}SVM classifier}{13}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Select two datasets with labels}{13}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Analyze the dataset: Distribution and Separability}{13}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Theoretical Background: SVM Kernels}{13}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Experimental Approach}{14}{subsubsection.2.2.2}%
+\contentsline {paragraph}{Implementation.}{14}{section*.40}%
+\contentsline {subsubsection}{\numberline {2.2.3}Analysis and Interpretation}{14}{subsubsection.2.2.3}%
+\contentsline {paragraph}{Mice Protein Dataset.}{14}{section*.42}%
+\contentsline {paragraph}{Isolet Dataset.}{14}{section*.43}%
+\contentsline {paragraph}{Data Distribution Insights.}{14}{section*.44}%
+\contentsline {subsection}{\numberline {2.3}Set up the SVM parameters suitable to the selected datasets}{14}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Theoretical Background: SVM Hyperparameters}{14}{subsubsection.2.3.1}%
+\contentsline {paragraph}{Regularization Parameter (C).}{15}{section*.45}%
+\contentsline {paragraph}{RBF Kernel Parameter ($\gamma $).}{15}{section*.46}%
+\contentsline {subsubsection}{\numberline {2.3.2}Parameter Selection Strategy}{15}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Implementation.}{15}{section*.47}%
+\contentsline {subsubsection}{\numberline {2.3.3}Justification}{15}{subsubsection.2.3.3}%
+\contentsline {paragraph}{Mice Protein (Linear SVM).}{15}{section*.49}%
+\contentsline {paragraph}{Isolet (RBF SVM).}{15}{section*.50}%
+\contentsline {paragraph}{Practical Considerations.}{15}{section*.51}%
+\contentsline {subsection}{\numberline {2.4}What is the performance of SVMs?}{16}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Performance Metrics}{16}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Analysis and Interpretation}{16}{subsubsection.2.4.2}%
+\contentsline {paragraph}{Mice Protein Dataset.}{16}{section*.53}%
+\contentsline {paragraph}{Isolet Dataset.}{16}{section*.54}%
+\contentsline {paragraph}{Computational Considerations.}{16}{section*.55}%
+\contentsline {paragraph}{Overall Assessment.}{16}{section*.56}%
+\contentsline {subsection}{\numberline {2.5}How can SVM handle multi-class datasets?}{17}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Theoretical Background: Multi-class Strategies}{17}{subsubsection.2.5.1}%
+\contentsline {paragraph}{One-vs-Rest (OvR).}{17}{section*.57}%
+\contentsline {paragraph}{One-vs-One (OvO).}{17}{section*.58}%
+\contentsline {subsubsection}{\numberline {2.5.2}Implementation in sklearn}{17}{subsubsection.2.5.2}%
+\contentsline {paragraph}{Implementation.}{17}{section*.59}%
+\contentsline {subsubsection}{\numberline {2.5.3}Analysis and Interpretation}{17}{subsubsection.2.5.3}%
+\contentsline {paragraph}{Mice Protein (8 classes).}{17}{section*.61}%
+\contentsline {paragraph}{Isolet (26 classes).}{17}{section*.62}%
+\contentsline {paragraph}{Practical Considerations.}{18}{section*.63}%

@@ -1,0 +1,93 @@
+--- Loading Mice Protein Dataset ---
+Mice Shape: (1080, 77), Classes: 8
+
+[Mice_Protein] Running KNN...
+Default k=5: Accuracy=0.9259, Error=0.0741
+[Mice_Protein] Varying k...
+Saved plot to results/Mice_Protein_vary_k.png
+[Mice_Protein] Normalization...
+Normalized (MinMax) k=5: Accuracy=0.9784, Error=0.0216
+[Mice_Protein] PCA & SVD...
+PCA (95% var) k=5: Accuracy=0.9753, Error=0.0247, Components=27
+[Mice_Protein] 5-Fold Cross Validation (on Train)...
+CV Scores: [0.99342105 0.97350993 0.99337748 0.98013245 0.97350993], Mean: 0.9828
+LOO Mean Accuracy (Subset): 0.9894
+
+[Mice_Protein] Running SVM...
+Fitting Linear SVM...
+Linear SVM Accuracy: 0.9969
+Fitting RBF SVM...
+RBF SVM Accuracy: 0.9877
+SVM handling multi-class strategy: ovr
+Classification Report (RBF):
+              precision    recall  f1-score   support
+
+      c-CS-m       0.98      1.00      0.99        47
+      c-CS-s       0.94      1.00      0.97        49
+      c-SC-m       1.00      0.98      0.99        42
+      c-SC-s       1.00      0.98      0.99        44
+      t-CS-m       1.00      1.00      1.00        31
+      t-CS-s       1.00      0.94      0.97        33
+      t-SC-m       1.00      1.00      1.00        38
+      t-SC-s       1.00      1.00      1.00        40
+
+    accuracy                           0.99       324
+   macro avg       0.99      0.99      0.99       324
+weighted avg       0.99      0.99      0.99       324
+
+--- Loading Isolet Dataset ---
+Isolet Train: (6238, 617), Test: (1559, 617)
+
+[Isolet] Running KNN...
+Default k=5: Accuracy=0.9128, Error=0.0872
+[Isolet] Varying k...
+Saved plot to results/Isolet_vary_k.png
+[Isolet] Normalization...
+Normalized (MinMax) k=5: Accuracy=0.9128, Error=0.0872
+[Isolet] PCA & SVD...
+PCA (95% var) k=5: Accuracy=0.9160, Error=0.0840, Components=177
+[Isolet] 5-Fold Cross Validation (on Train)...
+CV Scores: [0.91666667 0.90224359 0.90544872 0.91098637 0.89735365], Mean: 0.9065
+[Isolet] Data too large for full LOO. Running on subset of 200 samples...
+LOO Mean Accuracy (Subset): 0.5850
+
+[Isolet] Running SVM...
+Fitting Linear SVM...
+Linear SVM Accuracy: 0.9557
+Fitting RBF SVM...
+RBF SVM Accuracy: 0.9615
+SVM handling multi-class strategy: ovr
+Classification Report (RBF):
+              precision    recall  f1-score   support
+
+         1.0       1.00      1.00      1.00        60
+         2.0       0.89      0.90      0.89        60
+         3.0       0.97      0.98      0.98        60
+         4.0       0.96      0.92      0.94        60
+         5.0       0.90      0.95      0.93        60
+         6.0       0.89      0.98      0.94        60
+         7.0       0.98      1.00      0.99        60
+         8.0       1.00      1.00      1.00        60
+         9.0       0.98      0.97      0.97        60
+        10.0       1.00      1.00      1.00        60
+        11.0       1.00      0.98      0.99        60
+        12.0       1.00      1.00      1.00        60
+        13.0       0.86      0.93      0.89        59
+        14.0       0.94      0.83      0.88        60
+        15.0       1.00      1.00      1.00        60
+        16.0       0.92      0.93      0.93        60
+        17.0       0.98      1.00      0.99        60
+        18.0       0.98      1.00      0.99        60
+        19.0       1.00      0.92      0.96        60
+        20.0       1.00      0.88      0.94        60
+        21.0       0.89      0.98      0.94        60
+        22.0       0.92      0.92      0.92        60
+        23.0       0.98      1.00      0.99        60
+        24.0       0.98      0.98      0.98        60
+        25.0       1.00      1.00      1.00        60
+        26.0       0.98      0.93      0.96        60
+
+    accuracy                           0.96      1559
+   macro avg       0.96      0.96      0.96      1559
+weighted avg       0.96      0.96      0.96      1559
+

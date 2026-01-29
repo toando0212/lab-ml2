@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}Decision Tree - DT}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Select two datasets with labels available}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Analyze and pre-process the data}{1}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Data Analysis}{1}{subsubsection.1.2.1}%
+\contentsline {paragraph}{Class Distribution.}{1}{section*.4}%
+\contentsline {paragraph}{Dimensionality and Separability (PCA).}{2}{section*.6}%
+\contentsline {subsubsection}{\numberline {1.2.2}Divide the original dataset into two subsets (80\% - 20\%)}{2}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Build a DT for the training subset}{2}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Theoretical Background and Algorithm Description}{2}{subsubsection.1.3.1}%
+\contentsline {paragraph}{Gini Impurity.}{3}{section*.8}%
+\contentsline {paragraph}{Entropy (Information Gain).}{3}{section*.9}%
+\contentsline {subsubsection}{\numberline {1.3.2}Implementation Details}{3}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Calculate the error of classification}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Performance Metrics}{4}{subsubsection.1.4.1}%
+\contentsline {paragraph}{Accuracy.}{4}{section*.12}%
+\contentsline {paragraph}{Precision.}{4}{section*.13}%
+\contentsline {paragraph}{Recall (Sensitivity).}{4}{section*.14}%
+\contentsline {paragraph}{F1-score.}{4}{section*.15}%
+\contentsline {subsubsection}{\numberline {1.4.2}Experimental Results}{4}{subsubsection.1.4.2}%
+\contentsline {paragraph}{Analysis.}{5}{section*.17}%
+\contentsline {section}{\numberline {2}Random Forest - RF}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Analyze and pre-process the data}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Create K = 100 training set and build 1 testing set}{6}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Theoretical Background: Ensemble Learning}{6}{subsubsection.2.2.1}%
+\contentsline {paragraph}{1. Bagging (Bootstrap Aggregating).}{6}{section*.20}%
+\contentsline {paragraph}{2. Feature Randomness.}{6}{section*.21}%
+\contentsline {subsubsection}{\numberline {2.2.2}Validation of K=100 (Convergence Analysis)}{7}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Build an RF and calculate the error of classification}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Compare the results of RF and DT}{7}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Quantitative Comparison}{7}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Qualitative Analysis and Comment}{7}{subsubsection.2.4.2}%
+\contentsline {paragraph}{Performance Improvement.}{7}{section*.25}%
+\contentsline {paragraph}{Bias-Variance Tradeoff.}{8}{section*.26}%
+\contentsline {paragraph}{Feature Importance.}{8}{section*.27}%

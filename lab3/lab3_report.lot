@@ -1,0 +1,11 @@
+\contentsline {table}{\numberline {1}{\ignorespaces Baseline K-NN performance ($k=5$) on both datasets.}}{2}{table.caption.7}%
+\contentsline {table}{\numberline {2}{\ignorespaces Classification performance for varying $k$ values on Mice Protein dataset.}}{5}{table.caption.13}%
+\contentsline {table}{\numberline {3}{\ignorespaces Classification performance for varying $k$ values on Isolet dataset.}}{5}{table.caption.14}%
+\contentsline {table}{\numberline {4}{\ignorespaces Effect of Min-Max normalization on K-NN performance ($k=5$).}}{8}{table.caption.19}%
+\contentsline {table}{\numberline {5}{\ignorespaces Dimensionality reduction via PCA retaining 95\% variance.}}{10}{table.caption.26}%
+\contentsline {table}{\numberline {6}{\ignorespaces 5-Fold Cross-Validation statistics for K-NN (k=5) on normalized data.}}{11}{table.caption.31}%
+\contentsline {table}{\numberline {7}{\ignorespaces Comparison of 5-Fold CV and LOO-CV on Mice Protein (normalized, k=5).}}{13}{table.caption.37}%
+\contentsline {table}{\numberline {8}{\ignorespaces SVM performance comparison: Linear vs RBF kernel on normalized data.}}{14}{table.caption.41}%
+\contentsline {table}{\numberline {9}{\ignorespaces SVM hyperparameters selected for each dataset.}}{15}{table.caption.48}%
+\contentsline {table}{\numberline {10}{\ignorespaces Performance comparison: K-NN vs SVM classifiers on normalized data.}}{16}{table.caption.52}%
+\contentsline {table}{\numberline {11}{\ignorespaces Number of binary classifiers required for each multi-class strategy.}}{17}{table.caption.60}%
