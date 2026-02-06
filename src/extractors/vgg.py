@@ -1,6 +1,6 @@
 import torch.nn as nn
 from torchvision import models
-from .base_extractor import BaseExtractor
+from .base import BaseExtractor
 
 class VGG16Extractor(BaseExtractor):
     def __init__(self, device=None):

@@ -1,14 +1,17 @@
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 import numpy as np
 import time
-from data_loader import get_dataloader
-from extractors.vgg_extractor import VGG16Extractor
+from src.data_loader import get_dataloader
+from src.extractors.vgg import VGG16Extractor
 
 def run():
-    csv_train = "/Volumes/Toan/ML2/Dataset/GTRSB/Train.csv"
-    root_dir = "/Volumes/Toan/ML2/Dataset/GTRSB/"
-    output_dir = "/Volumes/Toan/ML2/Features/Variants/vgg16"
+    csv_train = "/Volumes/Toan/ML2/data/Dataset/GTRSB/Train.csv"
+    root_dir = "/Volumes/Toan/ML2/data/Dataset/GTRSB/"
+    output_dir = "/Volumes/Toan/ML2/data/Features/Variants/vgg16"
     os.makedirs(output_dir, exist_ok=True)
     
     print("🚀 Bắt đầu trích xuất: VGG16")

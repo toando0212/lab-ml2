@@ -1,14 +1,17 @@
+import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 import numpy as np
 import time
-from data_loader import get_dataloader
-from extractors.resnet_extractor import ResNet50Extractor
+from src.data_loader import get_dataloader
+from src.extractors.resnet import ResNet50Extractor
 
 def run():
-    csv_train = "/Volumes/Toan/ML2/Dataset/GTRSB/Train.csv"
-    root_dir = "/Volumes/Toan/ML2/Dataset/GTRSB/"
-    output_dir = "/Volumes/Toan/ML2/Features/Variants/resnet50"
+    csv_train = "/Volumes/Toan/ML2/data/Dataset/GTRSB/Train.csv"
+    root_dir = "/Volumes/Toan/ML2/data/Dataset/GTRSB/"
+    output_dir = "/Volumes/Toan/ML2/data/Features/Variants/resnet50"
     os.makedirs(output_dir, exist_ok=True)
     
     print("🚀 Bắt đầu trích xuất: RESNET50")
