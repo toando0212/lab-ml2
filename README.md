@@ -1,84 +1,75 @@
 # Dự án Phân loại Biển báo Giao thông (GTSRB)
 
-Dự án này tập trung vào việc nhận diện và phân loại biển báo giao thông sử dụng bộ dữ liệu German Traffic Sign Recognition Benchmark (GTSRB). Hệ thống sử dụng các kỹ thuật trích xuất đặc trưng sâu (Deep Feature Extraction) kết hợp với mô hình SVM (Support Vector Machine).
+Dự án này tập trung vào việc nhận diện và phân loại biển báo giao thông sử dụng bộ dữ liệu German Traffic Sign Recognition Benchmark (GTSRB). Hệ thống áp dụng mô hình **Modular Monolith** với các kỹ thuật trích xuất đặc trưng sâu (Deep Feature Extraction) kết hợp với **SVM (Support Vector Machine)**.
 
-> [!NOTE]
-> Repository này chứa cả nội dung từ Lab 1 đến Lab 4. Các file liên quan đến dự án GTSRB được liệt kê chi tiết dưới đây để tránh nhầm lẫn.
+> [!IMPORTANT]
+> Dự án đã được tái cấu trúc theo tiêu chuẩn Software Engineering (SE) để đảm bảo tính module hóa và dễ bảo trì.
 
-## 📂 Thu thập và Tiền xử lý Dữ liệu
+---
 
-- `data_loader.py`: Chịu trách nhiệm load ảnh từ thư mục `Dataset/GTRSB`, hỗ trợ resize và chuẩn hóa dữ liệu.
-- `preview_data.py`: Script dùng để xem nhanh các mẫu ảnh trong bộ dữ liệu.
-- `plot_class_distribution.py`: Trực quan hóa số lượng mẫu của từng loại biển báo (phân bố lớp).
+## 🏗️ Cấu trúc Dự án (Modular Architecture)
 
-## 🧠 Trích xuất Đặc trưng (Feature Extraction)
+Dự án được tổ chức thành các khối chuyên biệt để tách biệt logic xử lý và script thực thi:
 
-- `feature_extractor.py`: Sử dụng các mô hình Pre-trained (ResNet50, InceptionV3) để chuyển đổi ảnh thành vector đặc trưng.
-- `main_extraction.py`: Script thực thi luồng trích xuất đặc trưng và lưu kết quả vào thư mục `Features/`.
-- `analyze_features.py`: Phân tích và kiểm tra tính hợp lệ của các đặc trưng đã trích xuất.
+- `src/`: Chứa mã nguồn logic cốt lõi (Data Loading, Feature Extractors, Analysis Tools).
+- `scripts/`: Chứa các script thực thi quy trình (Extraction Runners, Comparision, Training).
+- `data/`: Lưu trữ dữ liệu thô (`Dataset/`) và đặc trưng đã trích xuất (`Features/`).
+- `docs/`: Tài liệu chi tiết về dự án và các nghiên cứu đối chứng.
+- `reports/`: Chứa các báo cáo kết quả, biểu đồ và file trace dữ liệu.
+- `labs/`: Lưu trữ các bài tập thực hành cũ (Lab 1 - Lab 4).
 
-## 📉 Giảm chiều và Trực quan hóa
+---
 
-- `dimension_reduction.py`: Áp dụng các thuật toán PCA (Principal Component Analysis) và UMAP để giảm chiều dữ liệu, giúp dễ dàng quan sát cấu trúc dữ liệu.
+## 🧠 Ablation Study: ResNet50 vs InceptionV3
 
-## 🤖 Huấn luyện và Đánh giá Mô hình
+Chúng tôi thực hiện nghiên cứu đối chứng để tìm ra bộ trích xuất đặc trưng tối ưu nhất cho biển báo giao thông.
 
-- `svm_classification.py`: Thành phần chính thực hiện huấn luyện mô hình SVM, tối ưu hóa tham số và báo cáo độ chính xác (Accuracy, F1-Score, Confusion Matrix).
-- `visualize_svm_mechanism.py`: Trực quan hóa cách mô hình SVM tạo ra các ranh giới phân biệt (decision boundaries) giữa các lớp biển báo.
+### Kết quả Phân tích PCA (Tính đến hiện tại):
+- **Hiệu quả nén**: **ResNet50** vượt trội hơn khi PC1 capture được **20.50%** thông tin (so với 16.34% của InceptionV3).
+- **Độ cô đặc**: Đặc trưng của ResNet50 mang tính tập trung cao hơn, giúp mô hình SVM dễ dàng phân loại hơn.
+- Chi tiết xem tại: [ABLATION_STUDY_ANALYSIS.md](file:///Volumes/Toan/ML2/docs/ABLATION_STUDY_ANALYSIS.md).
 
-## 📁 Cấu trúc Thư mục Quan trọng
+---
 
-- `Dataset/GTRSB/`: Nơi chứa ảnh gốc (Đã được cấu hình `.gitignore` để tránh nặng repo).
-- `Features/`: Chứa các file `.npy`, `.csv` lưu trữ đặc trưng sau khi trích xuất.
-- `Results_SVM/`: Lưu trữ mô hình đã huấn luyện (`.pkl`) và các biểu đồ kết quả đánh giá.
-- `Visuals/`: Chứa các hình ảnh trực quan hóa dữ liệu và đặc trưng.
+## 🛠️ Cài đặt & Sử dụng
 
-## 🛠️ Cài đặt Môi trường (Setup)
+Dự án sử dụng [uv](https://github.com/astral-sh/uv) để quản lý môi trường và dependencies một cách tối ưu.
 
-Dự án này khuyến khích sử dụng [uv](https://github.com/astral-sh/uv) để quản lý môi trường nhanh chóng.
-
-### 1. Khởi tạo môi trường ảo
-
+### 1. Khởi tạo môi trường
 ```bash
-# Tạo môi trường ảo .venv
 uv venv
-
-# Kích hoạt môi trường (MacOS/Linux)
-source .venv/bin/activate
+source .venv/bin/activate  # MacOS/Linux
 ```
 
 ### 2. Cài đặt thư viện
-
 ```bash
-uv pip install torch torchvision pandas numpy scikit-learn matplotlib seaborn joblib tqdm pillow
+uv pip install -r pyproject.toml  # Hoặc cài lẻ torch torchvision pandas numpy...
 ```
 
-## ⚙️ Hướng dẫn Chạy
+### 3. Quy trình thực thi (Pipeline)
 
-Bạn có 2 cách để chạy các script trong dự án này:
-
-### Cách 1: Sử dụng `uv run` (Khuyên dùng - Nhanh & Tự động)
-
-Lệnh `uv run` sẽ tự động sử dụng môi trường ảo:
+Toàn bộ các lệnh được chạy thông qua `uv run` từ thư mục gốc:
 
 ```bash
-# Trích xuất đặc trưng
-uv run python main_extraction.py
+# 1. Trích xuất đặc trưng ResNet50 (Hỗ trợ Apple Silicon MPS)
+uv run scripts/run_resnet.py
 
-# Huấn luyện mô hình SVM
-uv run python svm_classification.py
+# 2. Trích xuất đặc trưng InceptionV3
+uv run scripts/run_inception.py
 
-# Trực quan hóa kết quả
-uv run python visualize_svm_mechanism.py
+# 3. Chạy phân tích đối chứng PCA (Đồ họa & Trace CSV)
+uv run scripts/compare_pca_variance.py
+
+# 4. Huấn luyện SVM và báo cáo kết quả
+uv run scripts/svm_classification.py
 ```
 
-### Cách 2: Sử dụng Python truyền thống
+---
 
-Nếu bạn đã kích hoạt môi trường ảo (`source .venv/bin/activate`):
-
-1. **Trích xuất đặc trưng**: `python main_extraction.py`
-2. **Huấn luyện mô hình**: `python svm_classification.py`
-3. **Trực quan hóa**: `python visualize_svm_mechanism.py`
+## 📁 Tài liệu tham khảo quan trọng
+- [Hướng dẫn Giảm chiều dữ liệu](file:///Volumes/Toan/ML2/docs/DIMENSION_REDUCTION_GUIDE.md)
+- [Cấu trúc Project Chi tiết](file:///Volumes/Toan/ML2/docs/PROJECT_STRUCTURE.md)
+- [Quy trình EDA Đặc trưng](file:///Volumes/Toan/ML2/docs/FEATURE_EDA_GUIDE.md)
 
 ---
 
