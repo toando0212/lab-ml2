@@ -9,19 +9,19 @@ from sklearn.metrics import classification_report, accuracy_score, confusion_mat
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def evaluate_model(model_name):
-    print(f"\n📊 Đang đánh giá mô hình {model_name}...")
+def evaluate_rbf_model(model_name):
+    print(f"\n📊 Đang đánh giá mô hình RBF-SVM {model_name}...")
     
-    model_dir = "/Volumes/Toan/ML2/models/final_svm"
+    model_dir = "/Volumes/Toan/ML2/models/rbf_svm"
     test_data_dir = "/Volumes/Toan/ML2/data/Features/TestSplit"
     report_dir = "/Volumes/Toan/ML2/reports/performance"
     os.makedirs(report_dir, exist_ok=True)
 
     # 1. Nạp mô hình và dữ liệu test
-    svm = joblib.load(f"{model_dir}/{model_name.lower()}_linear_svm.pkl")
+    svm = joblib.load(f"{model_dir}/{model_name.lower()}_rbf_svm.pkl")
     scaler = joblib.load(f"{model_dir}/{model_name.lower()}_scaler.pkl")
-    X_test = np.load(f"{test_data_dir}/{model_name.lower()}_X_test.npy")
-    y_test = np.load(f"{test_data_dir}/{model_name.lower()}_y_test.npy")
+    X_test = np.load(f"{test_data_dir}/{model_name.lower()}_X_test_rbf.npy")
+    y_test = np.load(f"{test_data_dir}/{model_name.lower()}_y_test_rbf.npy")
 
     # 2. Tiền xử lý tập test
     X_test_scaled = scaler.transform(X_test)
@@ -44,12 +44,12 @@ def evaluate_model(model_name):
     # 5. Vẽ Confusion Matrix
     cm = confusion_matrix(y_test, y_pred)
     plt.figure(figsize=(12, 10))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    plt.title(f"Confusion Matrix: {model_name} + Linear SVM")
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Reds')
+    plt.title(f"Confusion Matrix: {model_name} + RBF-SVM")
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     
-    cm_path = f"{report_dir}/{model_name.lower()}_confusion_matrix.png"
+    cm_path = f"{report_dir}/{model_name.lower()}_rbf_confusion_matrix.png"
     plt.savefig(cm_path)
     plt.close()
     print(f"💾 Đã lưu Confusion Matrix tại: {cm_path}")
@@ -66,17 +66,18 @@ def main():
     
     for m in models:
         try:
-            res = evaluate_model(m)
+            res = evaluate_rbf_model(m)
             model_name = res["model_name"]
             report_dict = res["report_dict"]
             
             # Tạo bảng tổng hợp cho từng lớp
             for class_id, metrics in report_dict.items():
                 if class_id in ['accuracy', 'macro avg', 'weighted avg']:
-                    continue  # Bỏ qua các dòng tổng hợp, sẽ xử lý riêng
+                    continue
                 
                 all_results.append({
                     "Model": model_name,
+                    "SVM_Type": "RBF",
                     "Class": class_id,
                     "Precision": metrics['precision'],
                     "Recall": metrics['recall'],
@@ -89,6 +90,7 @@ def main():
                 if avg_type in report_dict:
                     all_results.append({
                         "Model": model_name,
+                        "SVM_Type": "RBF",
                         "Class": avg_type,
                         "Precision": report_dict[avg_type]['precision'],
                         "Recall": report_dict[avg_type]['recall'],
@@ -99,6 +101,7 @@ def main():
             # Thêm dòng Accuracy
             all_results.append({
                 "Model": model_name,
+                "SVM_Type": "RBF",
                 "Class": "accuracy",
                 "Precision": res["accuracy"],
                 "Recall": res["accuracy"],
@@ -111,11 +114,10 @@ def main():
 
     if all_results:
         df = pd.DataFrame(all_results)
-        csv_path = "/Volumes/Toan/ML2/reports/final_comparison_summary.csv"
+        csv_path = "/Volumes/Toan/ML2/reports/rbf_svm_comparison_summary.csv"
         df.to_csv(csv_path, index=False)
-        print(f"\n✅ Đã lưu bảng tổng hợp chi tiết tại: {csv_path}")
-        print(f"   📋 Tổng số dòng: {len(df)} (bao gồm từng lớp + macro/weighted avg + accuracy)")
+        print(f"\n✅ Đã lưu bảng tổng hợp RBF-SVM chi tiết tại: {csv_path}")
+        print(f"   📋 Tổng số dòng: {len(df)}")
 
 if __name__ == "__main__":
     main()
-
