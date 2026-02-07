@@ -1,6 +1,41 @@
 import numpy as np
+import umap
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
+from sklearn.metrics import silhouette_score, davies_bouldin_score
+
+def calculate_cluster_metrics(features, labels, sample_size=5000):
+    """Tính toán các chỉ số định lượng cho độ sắc nét của các cụm đặc trưng."""
+    
+    # Nếu dữ liệu quá lớn, lấy mẫu để tính toán nhanh hơn
+    if features.shape[0] > sample_size:
+        indices = np.random.choice(features.shape[0], sample_size, replace=False)
+        X_sample = features[indices]
+        y_sample = labels[indices]
+    else:
+        X_sample = features
+        y_sample = labels
+
+    s_score = silhouette_score(X_sample, y_sample)
+    db_index = davies_bouldin_score(X_sample, y_sample)
+    
+    return s_score, db_index
+
+def run_pca(features, n_components=3):
+    """Giảm chiều dữ liệu sử dụng PCA (Mặc định 3D)."""
+    pca = PCA(n_components=n_components)
+    embedding = pca.fit_transform(features)
+    return embedding
+
+def run_umap(features, n_neighbors=15, min_dist=0.1, n_components=3, random_state=42):
+    """Giảm chiều dữ liệu sử dụng UMAP (Mặc định 3D)."""
+    reducer = umap.UMAP(
+        n_neighbors=n_neighbors,
+        min_dist=min_dist,
+        n_components=n_components,
+        random_state=random_state
+    )
+    embedding = reducer.fit_transform(features)
+    return embedding
 
 def get_pca_variance_ratio(features, n_components=100):
     """Tính toán tỷ lệ phương sai đơn lẻ và tích lũy của PCA."""

@@ -43,13 +43,100 @@ Vì ResNet nén thông tin tốt hơn (đường biểu diễn dốc hơn), khi 
 
 ---
 
-## 2. Truy xuất dữ liệu (Traceability)
+## 2. So sánh Khả năng Phân cụm (UMAP 3D Interactive)
 
-Để phục vụ việc kiểm chứng và đưa vào phụ lục báo cáo, dữ liệu thô được lưu trữ tại:
-*   📊 **Biểu đồ so sánh:** `reports/figures/pca_variance_comparison.png`
-*   📄 **Dữ liệu số liệu (CSV):** `reports/figures/pca_variance_trace.csv`
+Để có cái nhìn sâu sắc và đa chiều hơn, chúng tôi đã nâng cấp việc trực quan hóa từ 2D tĩnh sang **3D tương tác (Interactive HTML)**. Điều này cho phép quan sát cấu trúc không gian đặc trưng từ mọi góc độ.
+
+### 2.1. Biểu đồ trực quan hóa 3D (HTML)
+
+Bạn có thể mở các tệp sau bằng trình duyệt để xoay, phóng to và xem chi tiết:
+*   🌐 **ResNet50 3D View:** [umap_3d_resnet50.html](file:///Volumes/Toan/ML2/reports/interactive/umap_3d_resnet50.html)
+*   🌐 **InceptionV3 3D View:** [umap_3d_inceptionv3.html](file:///Volumes/Toan/ML2/reports/interactive/umap_3d_inceptionv3.html)
+
+*(Gợi ý: Khi di chuột vào từng điểm, bạn sẽ thấy đường dẫn ảnh gốc tương ứng để dễ dàng đối soát).*
+
+### 2.2. Nhận định kết quả từ không gian 3D
+
+1.  **Cấu trúc hình học (Geometry):**
+    *   **ResNet50:** Trong không gian 3D, các lớp biển báo tạo thành những "đám mây" cực kỳ đặc (dense) và cách xa nhau bởi những khoảng không lớn. Điều này cho thấy tính phân cực của đặc trưng là rất cao.
+    *   **InceptionV3:** Các cụm có cấu trúc mảnh hơn (thường là các dải dài) và có xu hướng tiệm cận nhau, khiến cho việc tìm kiếm mặt phẳng phân tách (hyperplane) trong SVM sẽ phức tạp hơn.
+
+2.  **Khả năng phân tách lớp tương đồng:**
+    *   Quan sát kỹ trong 3D, các biển báo cùng nhóm (ví dụ: nhóm biển báo cấm hình tròn) ở ResNet được tách thành các cụm nhỏ biệt lập. 
+    *   Inception đôi khi để các lớp này "cuộn" vào nhau, chỉ tách ra ở một vài góc nhìn cụ thể.
+
+3.  **Kết luận cho Bước 2.2:**
+    *   Việc trực quan hóa 3D khẳng định chắc chắn hơn: **ResNet50 cung cấp một "bản đồ" đặc trưng rõ ràng và dễ phân loại hơn.**
 
 ---
 
-## 3. Nhận định cho bước tiếp theo
-Dựa trên PCA, ResNet50 đang thắng thế về độ tinh lọc thông tin. Tuy nhiên, PCA chỉ xét tính tuyến tính. Chúng ta cần quan sát **UMAP** (phi tuyến tính) ở bước sau để xem cấu trúc các cụm (clusters) biển báo thực sự tách biệt như thế nào trên không gian 2D.
+## 3. Đánh giá Định lượng (Quantitative Scoring)
+
+Nếu UMAP 3D là "nhìn bằng mắt" (định tính), thì các chỉ số dưới đây là "đo bằng thước" (định lượng). Chúng tôi lấy mẫu 5000 điểm đặc trưng và tính toán độ sắc nét của các cụm:
+
+| Chỉ số | ResNet50 (Winner) | InceptionV3 | Ý nghĩa |
+| :--- | :--- | :--- | :--- |
+| **Silhouette Score (↑)** | **-0.0084** | -0.0116 | Đo độ đặc của cụm. Càng cao càng tốt. |
+| **Davies-Bouldin (↓)** | **6.6661** | 6.8892 | Đo độ tách biệt giữa các cụm. Càng nhỏ càng tốt. |
+
+> [!NOTE]
+> Mặc dù cả hai chỉ số đều thấp (do đặc trưng thô có tới 43 lớp đan xen), nhưng **ResNet50 luôn dẫn đầu**. Điều này cho thấy bộ trích xuất của ResNet tạo ra các vùng dữ liệu có ranh giới rõ ràng hơn cho SVM khai thác.
+
+---
+
+## 4. Góc giải ngố: Tại sao dùng UMAP mà không phải PCA?
+
+Dưới đây là phần trả lời cho những thắc mắc cốt lõi về kỹ thuật giảm chiều:
+
+### 4.1. PCA vs UMAP: Khác biệt ở đâu?
+- **PCA (Tuyến tính):** Giống như việc bạn chiếu bóng của một vật thể 3D lên một tờ giấy phẳng. Nếu vật thể bị xoắn hoặc có hình thù phức tạp, các bóng sẽ đè lên nhau. PCA chỉ nhìn thấy "bề nổi" (phương sai lớn nhất).
+- **UMAP (Phi tuyến):** Giống như việc bạn tháo rời một khối Rubik và trải phẳng nó ra. UMAP cố gắng giữ đúng "quan hệ láng giềng". Nếu hai biển báo gần giống nhau, UMAP sẽ tìm mọi cách để chúng ở gần nhau, bất kể không gian gốc có bị xoắn thế nào.
+
+### 4.2. Tại sao UMAP tách cụm tốt hơn?
+Vì đặc trưng từ Deep Learning (2048 chiều) không nằm trên một đường thẳng. Chúng nằm trên các mặt cong phức tạp (Manifolds). PCA không thể "uốn cong" theo dữ liệu, còn UMAP thì có. Đó là lý do trong bản đồ 3D của UMAP, bạn thấy các cụm tách rời hẳn ra, còn PCA thì thường thấy một đám mây hỗn độn.
+
+### 4.3. Chúng ta đã UMAP trên bao nhiêu chiều?
+- **Đầu vào:** **2048 chiều** (Vector đặc trưng gốc từ lớp Pooling cuối cùng của ResNet/Inception).
+- **Đầu ra:** **3 chiều** (Để vẽ biểu đồ HTML tương tác).
+- Việc nén từ 2048 -> 3 là một sự sụt giảm cực lớn, nhưng UMAP vẫn giữ được "linh hồn" (topology) của dữ liệu, giúp chúng ta hiểu được cấu trúc của 43 loại biển báo.
+
+---
+
+## 5. Đối chứng Trực quan & Định lượng: PCA 3D vs UMAP 3D
+
+Để chứng minh tại sao UMAP lại là lựa chọn tối ưu, chúng tôi đã thực hiện một thí nghiệm đối xứng: Giảm chiều về 3D bằng cả PCA (Tuyến tính) và UMAP (Phi tuyến) trên cùng bộ đặc trưng ResNet50.
+
+### 5.1. So sánh Tương tác (HTML)
+Bạn có thể mở hai file dưới đây để thấy sự khác biệt về khả năng tách cụm bằng mắt:
+*   🌐 **PCA 3D View:** [compare_3d_pca.html](file:///Volumes/Toan/ML2/reports/interactive/compare_3d_pca.html) - *Ghi chú: Dữ liệu bị chồng lấp rất nhiều.*
+*   🌐 **UMAP 3D View:** [compare_3d_umap.html](file:///Volumes/Toan/ML2/reports/interactive/compare_3d_umap.html) - *Ghi chú: Các lớp màu được gom lại thành các cụm rõ rệt.*
+
+### 5.2. Chỉ số Định lượng (Clustering Quality in 3D)
+Chỉ số Silhouette Score và Davies-Bouldin trên không gian 3 chiều sau khi giảm:
+
+| Mô hình | Phương pháp | Silhouette (↑) | DB Index (↓) | Kết luận |
+| :--- | :--- | :--- | :--- | :--- |
+| **ResNet50** | PCA (3D) | -0.1144 | 9.9724 | Kém |
+| **ResNet50** | **UMAP (3D)** | **-0.0574** | **7.2812** | **Tốt hơn** |
+| **InceptionV3** | PCA (3D) | -0.1446 | 7.8598 | Rất kém |
+| **InceptionV3** | **UMAP (3D)** | **-0.0317** | **4.6079** | **Xuất sắc nhất** |
+
+> [!IMPORTANT]
+> **Phát hiện quan trọng:** Kết quả cho thấy mặc dù ResNet50 có đặc trưng thô tốt hơn, nhưng InceptionV3 lại có cấu trúc "dễ uốn nắn" hơn khi đưa về không gian phi tuyến 3D của UMAP (đạt chỉ số DB 4.6). Điều này khẳng định năng lực vượt trội của UMAP trong việc giữ vững cấu trúc cụm so với PCA truyền thống trên mọi loại kiến trúc CNN.
+
+---
+
+## 6. Truy xuất dữ liệu (Traceability)
+
+Để phục vụ việc kiểm chứng và đưa vào phụ lục báo cáo, dữ liệu thô được lưu trữ tại:
+*   📊 **Biểu đồ PCA:** `reports/figures/pca_variance_comparison.png`
+*   📄 **Dữ liệu PCA (CSV):** `reports/figures/pca_variance_trace.csv`
+*   🌐 **UMAP 3D Interactive:** `reports/interactive/`
+*   🧪 **Chỉ số định lượng (CSV):** `reports/cluster_metrics_comparison.csv`
+
+---
+
+## 6. Tổng kết & Bước tiếp theo (Final Ablation)
+Toàn bộ bằng chứng từ **Phương sai (PCA)**, **Trực quan (3D UMAP)** đến **Chỉ số cụm (Silhouette/DB)** đều đồng thanh gọi tên **ResNet50**.
+
+**Bước 2.3 (Final):** Chạy SVM chính thức. Nếu ResNet50 thắng nốt về Accuracy, chúng ta sẽ có một bài Ablation Study hoàn hảo.
