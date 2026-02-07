@@ -73,4 +73,3 @@ uv run scripts/svm_classification.py
 
 ---
 
-*Người thực hiện: Đỗ Duy Toàn & Tạ Hiếu Nam*
