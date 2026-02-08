@@ -33,9 +33,9 @@ def main():
                     textcoords = 'offset points',
                     fontsize=10, fontweight='bold')
 
-    plt.title("Phân bố số lượng mẫu cho 10 lớp đầu tiên (GTSRB)", fontsize=15, pad=20)
+    plt.title("Sample Distribution for the First 10 Classes (GTSRB)", fontsize=15, pad=20)
     plt.xlabel("Class ID", fontsize=12)
-    plt.ylabel("Số lượng mẫu (Images)", fontsize=12)
+    plt.ylabel("Number of Samples (Images)", fontsize=12)
     
     output_path = os.path.join(report_dir, "class_distribution_10_classes.png")
     plt.savefig(output_path, dpi=300, bbox_inches='tight')

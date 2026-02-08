@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\AtBeginDocument{\renewcommand{\bibname}{References}}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+% --- TITLE PAGE ---
+\begin{titlepage}
+    \begin{center}
+        {\large \textbf{UNIVERSITY OF SCIENCE AND TECHNOLOGY OF HANOI} \par}
+        \vspace{2cm}
+        \includegraphics[width=0.5\textwidth]{usth.png} \par
+        \vspace{2cm}
+        {\Large \textbf{MACHINE LEARNING AND DATA MINING II} \par}
+        \vspace{1cm}
+        {\Large \textbf{FINAL PROJECT REPORT} \par}
+        \vspace{0.5cm}
+        {\Huge \textbf{Traffic Sign Classification} \par}
+        \vspace{2cm}
+        
+        {\large Đỗ Duy Toàn (22BI13420) \par}
+        \vspace{0.3cm}
+        {\large Vũ Tùng Lâm (22BI13241) \par}
+        \vspace{0.3cm}
+        {\large Nguyễn Thái An (22BI13005) \par}
+        \vspace{0.3cm}
+        {\large Nguyễn Văn Linh (22BI13252) \par}
+        \vspace{0.3cm}
+        {\large Phạm Viết Hải Đăng (22BI13074) \par}
+        \vspace{0.3cm}
+        {\large Tạ Hiếu Nam (22BI13327) \par}
+        \vfill
+        {\large \textbf{Lecturer: Dr. Đoàn Nhật Quang} \par}
+        \vspace{1.5cm}
+        \textbf{Hanoi, \the\year}
+    \end{center}
+\end{titlepage}
+
+\include{chapters/abstract}
+
+% --- TABLE OF CONTENTS ---
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+
+% --- CONTENT ---
+\include{chapters/introduction}
+\include{chapters/related_work}
+\include{chapters/methodology}
+\include{chapters/results}
+\include{chapters/conclusion}
+
+% --- BIBLIOGRAPHY ---
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

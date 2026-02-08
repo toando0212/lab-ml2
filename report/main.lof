@@ -1,0 +1,13 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Class distribution of the first 10 selected categories from the GTSRB dataset.}}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Reference icons for the 10 selected traffic sign classes (Class ID 0-9).}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Real-world training samples corresponding to Class IDs 0-9.}}{9}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Cumulative explained variance comparison. The threshold of 200 components is selected to capture $\approx $90\% of the original information.}}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Qualitative comparison of feature manifolds. (Mockup for 3D visualization results).}}{12}{figure.caption.11}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Confusion Matrix comparison for both architectures. The non-linear RBF kernel significantly clears the off-diagonal noise observed in the linear SGD models.}}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Representative Failure Cases. (A) Actual Label, (P) Predicted Label. Most errors involve visually similar digits (30 vs 50 km/h) or challenging environmental conditions.}}{18}{figure.caption.16}%
+\addvspace {10\p@ }

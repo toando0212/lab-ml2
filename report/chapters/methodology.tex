@@ -1,0 +1,149 @@
+\chapter{Methodology}
+\section{Dataset Selection}
+The German Traffic Sign Recognition Benchmark (GTSRB) \cite{gtsrb} is a multi-category classification dataset consisting of 43 distinct traffic sign classes. For the purposes of this project, we focused on the first 10 classes to build a representative and computationally efficient classification pipeline. This subset captures a variety of shapes and colors, including speed limits, mandatory, and danger signs. 
+
+As illustrated in Figure \ref{fig:class_dist}, the sample distribution across these 10 classes remains relatively balanced, ensuring that the model training process is not heavily biased toward any particular category.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../reports/figures/class_distribution_10_classes.png}
+    \caption{Class distribution of the first 10 selected categories from the GTSRB dataset.}
+    \label{fig:class_dist}
+\end{figure}
+
+
+To provide a clear understanding of the data used in this classification task, we present both the ideal class representations and the actual samples from the dataset. Figure \ref{fig:meta_ref} serves as a clean reference for each Class ID, while Figure \ref{fig:dataset_samples} displays representative real-world images from the training set. These illustrations highlight the challenges of the GTSRB dataset, including variations in lighting, motion blur, and perspective.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../reports/figures/meta_reference.png}
+    \caption{Reference icons for the 10 selected traffic sign classes (Class ID 0-9).}
+    \label{fig:meta_ref}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../reports/figures/dataset_samples.png}
+    \caption{Real-world training samples corresponding to Class IDs 0-9.}
+    \label{fig:dataset_samples}
+\end{figure}
+
+\section{Feature Extraction}
+This project adopts a \textbf{Transfer Learning} approach to leverage highly discriminative representations learned from the ImageNet large-scale dataset. We utilize two state-of-the-art deep convolutional neural network (CNN) architectures: ResNet50 \cite{resnet} and InceptionV3 \cite{inception}. 
+
+\subsection{Architectural Deep-Dive}
+\begin{enumerate}
+    \item \textbf{ResNet50 (Residual Learning):} The core innovation of ResNet is the introduction of \textit{shortcut connections} or \textit{skip connections}. These connections allow the gradient to flow directly through the network, effectively bypassing weight layers. Mathematically, instead of learning a direct mapping $H(x)$, the network learns a residual mapping $F(x) = H(x) - x$. This architecture successfully mitigates the vanishing gradient problem, enabling the training of much deeper networks (50 layers in this case) while maintaining high representational accuracy.
+    
+    \item \textbf{InceptionV3 (Factorized Convolutions):} InceptionV3 focuses on computational efficiency and multi-scale feature extraction. It utilizes \textit{Inception modules} that perform convolutions with different filter sizes ($1 \times 1, 3 \times 3, 5 \times 5$) in parallel at the same level. A key technique is \textit{factorization}, such as decomposing a $7 \times 7$ convolution into two $1 \times 7$ and $7 \times 1$ filters, which reduces parameters without losing spatial information. This allows the model to capture both fine-grained and global patterns in traffic signs.
+\end{enumerate}
+
+To function as fixed feature extractors, the final fully-connected classification layers of both models are removed. We retain the convolutional base followed by a \textbf{Global Average Pooling (GAP)} layer. Unlike standard pooling, GAP computes the spatial average of each feature map across the entire $W \times H$ dimension. For both architectures, this results in a fixed-size \textbf{2048-dimensional} feature vector ($1 \times 1 \times 2048$), which serves as a compact and robust semantic summary of the input image.
+
+The implementation is carried out using the \texttt{PyTorch} framework and the \texttt{torchvision.models} library. Raw traffic sign images are resized to $224 \times 224 \times 3$ for ResNet50 and $299 \times 299 \times 3$ for InceptionV3 to match the original training specifications.
+
+\section{Comparative Analysis of Feature Representations}
+To rigorously evaluate the quality of the extracted features, we perform a comparative analysis between ResNet50 and InceptionV3. This evaluation employs a dual-framework approach:
+\begin{itemize}
+    \item \textbf{Linear Projection (PCA):} Assesses the global structural information and information density.
+    \item \textbf{Non-linear Manifold Learning (UMAP):} Evaluates the local topological structure of the 10-class traffic sign clusters in high-dimensional space.
+\end{itemize}
+The analysis is implemented using \texttt{Scikit-learn}, \texttt{umap-learn}, and \texttt{Matplotlib}.
+
+\subsection{Evaluation Criteria}
+The assessment of feature quality is governed by two primary mathematical indices and a topological analysis:
+
+\begin{enumerate}
+    \item \textbf{Silhouette Score ($S$):} Measures how similar an object is to its own cluster compared to other clusters. For a data point $i$, it is defined as:
+    \begin{equation}
+        s(i) = \frac{b(i) - a(i)}{\max\{a(i), b(i)\}}
+    \end{equation}
+    where $a(i)$ is the mean intra-cluster distance and $b(i)$ is the mean nearest-cluster distance. A value closer to +1 indicates high-quality clustering.
+    
+    \item \textbf{Davies-Bouldin Index ($DB$):} Evaluates the average "similarity" between clusters, focusing on the ratio of within-cluster scatter to between-cluster separation:
+    \begin{equation}
+        DB = \frac{1}{n} \sum_{i=1}^n \max_{j \neq i} \left( \frac{\sigma_i + \sigma_j}{d(c_i, c_j)} \right)
+    \end{equation}
+    where $\sigma$ represents the cluster diameter and $d(c_i, c_j)$ is the distance between cluster centroids. A lower $DB$ index signifies better class separation.
+
+    \item \textbf{Manifold Continuity (Qualitative):} Beyond numeric scoring, we analyze the manifold structure using UMAP. A "good" representation should maintain \textit{continuity} (points of the same class stay connected) and \textit{separability} (dissimilar classes form distinct islands in the latent space).
+\end{enumerate}
+
+\subsection{Information Density Analysis (PCA-based)}
+Principal Component Analysis (PCA) is employed to quantify the efficiency of featured representation. A higher concentration of variance in the initial components indicates a more discriminative and compact feature space. As shown in Table \ref{tab:pca_metrics}, ResNet50 demonstrates superior compression efficiency.
+
+\begin{table}[H]
+    \centering
+    \caption{PCA Variance Distribution Comparison}
+    \label{tab:pca_metrics}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Metric} & \textbf{ResNet50} & \textbf{InceptionV3} & \textbf{Delta} \\
+        \midrule
+        PC1 (Core Variance) & \textbf{20.50\%} & 16.34\% & +4.16\% \\
+        PC1-PC10 (Structural) & \textbf{51.77\%} & 47.07\% & +4.70\% \\
+        Cumulative @ 200 components & \textbf{89.94\%} & 88.37\% & +1.57\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../reports/figures/pca_variance_comparison.png}
+    \caption{Cumulative explained variance comparison. The threshold of 200 components is selected to capture $\approx$90\% of the original information.}
+    \label{fig:pca_variance_overlap}
+\end{figure}
+
+\subsection{Cluster Discriminability (UMAP-based)}
+Deep features extracted from CNNs often reside on complex, non-linear manifolds in the 2048-dimensional space. While PCA identifies the axes of maximum global variance, \textbf{UMAP (Uniform Manifold Approximation and Projection)} is superior for preserving local structures and class clusters. Principal Component Analysis (PCA), a widely adopted technique for variance-maximization in high-dimensional datasets \cite{jolliffe2002}, is applied to the extracted feature vectors to reduce their dimensionality while preserving structural integrity. By constructing a fuzzy simplicial set representation of the high-dimensional data, UMAP can "unfold" the feature space into a lower dimension while maintaining class separability.
+
+Table \ref{tab:cluster_metrics} presents the quantitative validation calculated directly on the 2048-dimensional space, confirming that ResNet50 clusters are more compact and distinct. 
+
+\begin{table}[H]
+    \centering
+    \caption{Quantitative Clustering Quality Metrics (2048-D)}
+    \label{tab:cluster_metrics}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Metric} & \textbf{ResNet50} & \textbf{InceptionV3} & \textbf{Significance} \\
+        \midrule
+        Silhouette Score ($\uparrow$) & \textbf{-0.0084} & -0.0116 & Better intra-cluster density \\
+        Davies-Bouldin Index ($\downarrow$) & \textbf{6.6661} & 6.8892 & Better cluster separation \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{cc}
+        % MOCKUP FOR 4 FIGURES (PCA 3D vs UMAP 3D)
+        \framebox[0.45\textwidth]{\rule{0pt}{100pt} ResNet50: PCA 3D Visualization} & 
+        \framebox[0.45\textwidth]{\rule{0pt}{100pt} InceptionV3: PCA 3D Visualization} \\
+        (a) Linear Projection (PCA) & (b) Linear Projection (PCA) \\[10pt]
+        \framebox[0.45\textwidth]{\rule{0pt}{100pt} ResNet50: UMAP 3D Visualization} & 
+        \framebox[0.45\textwidth]{\rule{0pt}{100pt} InceptionV3: UMAP 3D Visualization} \\
+        (c) Non-linear Manifold (UMAP) & (d) Non-linear Manifold (UMAP) \\
+    \end{tabular}
+    \caption{Qualitative comparison of feature manifolds. (Mockup for 3D visualization results).}
+    \label{fig:3d_mockup}
+\end{figure}
+
+The empirical evidence from both variance analysis and clustering metrics confirms that ResNet50 provides a more structured and discriminative feature space, making it the primary candidate for achieving high accuracy in the subsequent SVM classification pipeline.
+
+\section{Experimental Setup and Training Strategy}
+The core classification task is designed to compare the robustness of linear vs. non-linear decision boundaries when applied to deep-feature spaces.
+
+\subsection{Data Partitioning and Preprocessing}
+The selected dataset of 10 traffic sign classes is partitioned into training and testing sets using the \texttt{train\_test\_split} function from the \texttt{Scikit-learn} library. We employ a stratified split ratio of \textbf{80:20} to ensure that the distribution of traffic sign categories remains consistent across both subsets. To ensure the numerical stability of the SVM optimization process, Z-score normalization is performed using the \texttt{StandardScaler} module, applied to the 2048-dimensional feature vectors:
+\begin{equation}
+    z = \frac{x - \mu}{\sigma}
+\end{equation}
+where $\mu$ and $\sigma$ are the mean and standard deviation of the training features, respectively.
+
+\subsection{Training Strategies}
+We evaluate two distinct Support Vector Machine (SVM) configurations, implemented using the \texttt{Scikit-learn} library. The data handling and matrix operations are optimized using \texttt{NumPy} and \texttt{Pandas} to ensure efficient processing of the 2048-dimensional feature sets.
+
+\begin{enumerate}
+    \item \textbf{Stochastic Gradient Descent (SGD-SVM):} To handle potential scalability requirements, we implement a linear SVM optimized via SGD with a Hinge loss function. This approach is chosen for its efficiency ($O(N)$ complexity), providing a fast yet robust baseline for linear classification task.
+    \item \textbf{Radial Basis Function (RBF-SVM):} To exploit non-linear relationships, we use the RBF kernel: $K(x_i, x_j) = \exp(-\gamma ||x_i - x_j||^2)$. This configuration introduces significantly higher computational complexity ($O(N^2 \cdot D)$). Furthermore, since class probability estimation is required for downstream analysis, an \textbf{internal 5-fold cross-validation} (Platt scaling) is executed during the training phase. This hybrid approach enables the model to find more complex, non-linear decision boundaries to achieve high classification accuracy.
+\end{enumerate}

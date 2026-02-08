@@ -1,0 +1,549 @@
+
+--- PAGE 1 ---
+Trafﬁc Sign Classiﬁcation using K-d trees and Random Forests
+Fatin Zaklouta and Bogdan Stanciulescu and Omar Hamdoun
+Abstract—In this paper, we evaluate the performance of
+K-d trees and Random Forests for trafﬁc sign classiﬁcation
+using different size Histogram of Oriented Gradients (HOG)
+descriptors and Distance Transforms. We use the German
+Trafﬁc Sign Benchmark data set [1] containing 43 classes
+and more than 50,000 images. The K-d tree is fast to build
+and search in. We combine the tree classiﬁers with the HOG
+descriptors as well as the Distance Transforms and achieve
+classiﬁcation rates of up to 97% and 81.8% respectively.
+I. I NTRODUCTION
+Trafﬁc sign recognition is an essential component of a
+Driver Assistance System (DAS), providing drivers with
+safety and precaution information. Traditionally, trafﬁc sign
+recognition systems consist of two phases: detection and
+classiﬁcation. In the scope of our previous work [2], we
+developed a Histogram of Oriented Gradients (HOG) based
+Support Vector Machines (SVM) detector to ﬁnd trafﬁc sign
+candidates in urban and highway environments under vary-
+ing illumination and weather conditions. In this paper, we
+evaluate the techniques used in the classiﬁcation phase. We
+compare the performance of K-d trees and Random Forests
+using HOG descriptors and Distance Transforms computed
+on images from the German Trafﬁc Sign Benchmark data set
+[1].
+The trafﬁc signs are designed to be easily noticeable,
+with high contrast and bright colors. Simple pictograms and
+characters are used to make them easily comprehensible.
+We exploit this design aspect when using the Histogram
+of Oriented Gradients and the Distance Transform images.
+The standardization of these trafﬁc signs favors a nearest
+neighbor approach, which we implement efﬁciently using
+tree structures. One advantage of using trees is that they
+are fast and easy to build, update and search in. Another
+is that they cope well with imbalanced data sets, whereas
+other learning algorithms like SVM and Neural Networks
+require parameter ﬁne tuning.
+The state of the art on trafﬁc sign recognition is described
+in Section II. The features used for training the tree classiﬁers
+are described in Section III. Sections IV and V describe
+the construction and the parameters of the tree classiﬁers
+as well as the corresponding efﬁcient search algorithms. The
+experiments performed to evaluate the features and the tree
+classiﬁers are described in Section VI.
+II. R
+ELATED WORK
+Many approaches for trafﬁc sign recognition have been
+proposed in the past two decades. These are mainly based
+on color and shape features.
+Fatin Zaklouta, Bogdan Stanciulescu and Omar Hamdoun are with the
+Robotics Center, Mines ParisTech, Paris, France (email: {fatin.zaklouta,
+bogdan.stanciulescu,omar.hamdoun}@mines-paristech.fr).
+Color-based methods threshold the image to obtain the
+regions of interest (ROI). In [3], De La Escalera et al use
+the intensity ratio of the values of one color channel, e.g.
+red, to the sum of all the RGB components to threshold the
+image. The resulting regions are classiﬁed using a Neural
+Network. In [4], color-sensitive Haar wavelet features are
+combined with Adaboost to detect and track trafﬁc signs.
+More complex approaches include CIECAM97 [5], which is
+a color appearance standard based on the human perception.
+The gray-scale based approaches are, however, more robust
+to changes in illumination than the color-based ones.
+Shape-based methods exploit the invariance and symmetry
+of the trafﬁc signs in the detection phase. In [6], a K-d
+tree is built with gradient and shape descriptors and used
+to recognize trafﬁc signs. Franke et al. [7], [8] use Distance
+Transform (DT) template matching to classify circular and
+triangular signs. The advantage of matching DTs over edge
+images is that the similarity measure is smoother. Simi-
+larly, Ruta et al. [9] use the Color Distance Transform,
+where a separate distance transform DT is computed for
+each color channel. The classiﬁcation is performed using a
+nearest neighbor template matching approach. In [10], an
+SVM is trained on the Distance to Border (DtB) vectors to
+classify the shape of a detected trafﬁc sign. In [11], the FFT
+signatures of candidate signs are compared to those of the
+templates. This feature is robust to rotation, deformation and
+scaling.
+Many recent approaches use gradient orientation infor-
+mation to detect and classify trafﬁc signs. In [12], Edge
+Orientation Histograms are computed over class-speciﬁc sub-
+regions of the image. The Histogram of Oriented Gradients
+(HOG) [13], initially used for pedestrian detection, have
+been adapted to trafﬁc sign detection in several works. In
+[14], [15], the Regions of Interest obtained from color-based
+segmentation are classiﬁed using a HOG-based classiﬁer. To
+integrate color information in the HOG descriptor, Creusen et
+al [16] concatenate the HOG descriptors calculated on each
+of the color channels.
+Trees are a popular alternative to learning approaches such
+as SVM and Neural Networks since they are more performant
+when using imbalanced data sets. A further advantage is that
+they are fast to build and easy to update. The K-d tree is
+a nearest-neighbor-based search tree. It is combined with
+an Radial Basis Neural Network in [6] to classify trafﬁc
+signs using gradient and shape descriptors. The Best Bin
+First algorithm [17] is an efﬁcient variant of the K-d tree
+search algorithm which allows for the indexing of higher
+dimensional spaces. Random Forests achieve state-of-the-
+art performance in classifying Caltech-101 and Caltech-256
+objects in [18]. It is shown in [19] that they also outperform
+Proceedings of International Joint Conference on Neural Networks, San Jose, California, USA, July 31 – August 5, 2011
+978-1-4244-9637-2/11/$26.00 ©2011 IEEE 2151
+--- PAGE 2 ---
+Fig. 1. Structure of HOG descriptor [13]
+Fig. 2. Comparison of Distance Transforms (DT) using bottom hat
+thresholding and Canny edge detection. Left: original image, center: bottom
+hat threshold result and corresponding DT, right: Canny edge detection and
+corresponding DT
+various other classiﬁers such as SVM and the Naives Bayes
+classiﬁer.
+III. F EATURES
+• Histogram of Oriented Gradients
+The Histogram of Oriented Gradients, proposed by
+Dalal and Triggs [13] for pedestrian detection, has
+become popular for the recognition of different types
+of objects. Fig. 1 illustrates the structure of the HOG
+descriptor. The image of a trafﬁc sign is divided into
+overlapping blocks. Each block, in turn, is divided
+into non-overlapping cells. The gradient orientation and
+magnitude are computed for each pixel. A histogram
+of these orientations is formed for each cell. The mag-
+nitude of the gradient is used as a vote weight. The
+histograms of the cells of each block are concatenated
+to form the HOG descriptor.
+• Distance Transforms
+Distance Transforms (DT) are an efﬁcient method to
+determine the similarity between two contour images.
+Different metrics can be used. In our case, the pixel
+value in the DT is the Euclidean distance of this pixel
+to the nearest nonzero pixel in the binary image.
+Fig. 3. Example of 2D K-d tree
+We use the black hat transform with a ﬁlter size of 2x2
+pixels and an adaptive threshold to obtain the binary
+image. For each image, we apply the blackhat (bottom-
+hat) transform. The blackhat transform is deﬁned as the
+difference between the closing of the image and the
+image itself. This morphological ﬁlter emphasizes dark
+pixels with a high contrast to their local environment,
+which is the case for the interior of the trafﬁc signs.
+The resulting image is then thresholded. This adaptive
+threshold corresponds to the mean pixel value over the
+whole image. This helps take the global illumination
+into consideration, while a local mean would be more
+sensitive to small illumination variations in the image.
+The result is a segmentation of the dark regions that
+are surrounded by light pixels: for example pictograms
+and characters. Fig. 2 shows the result of the bottom
+hat thresholding, the Canny edge detection and their
+corresponding DT. Note that the bottom hat thresholding
+preserves the details of the pictograms. The Canny
+edge detector uses the ﬁrst derivative of a Gaussian.
+It considers the weak gradients around the characters
+in a poorly illuminated image as noise. On the other
+hand, the bottom hat operator considers local gradients
+and is less sensative to global variations in illumination.
+The experiments in Section VI show that the bottom hat
+based distance threshold yield higher classiﬁcation rates
+than the Canny edge based one.
+IV . K-
+D TREES
+A K-d tree is a binary search tree organizingk-dimensional
+data points. Each non-leaf node splits the data into two
+subspaces in the feature i with the highest variance at that
+level. Therefore, each node contains a (k −1)-dimensional
+hyperplane H
+i = {x1,...,x i−1,i ,x i+1,x k}, 1 ≤ i ≤ k
+parallel to the i-th axis. In Fig. 3, the 2-D space is divided
+alternatingly by 1-D lines parallel to the x and the y axes.
+To ensure that the tree is balanced, the median value vi of
+the i-th dimension is used for the split in each node. The
+left subtree contains data points smaller than vi and the right
+subtree points larger than vi. This division is repeated until
+each data point is represented by a leaf.
+The K-d tree is a nearest-neighbor-based search tree.
+We use the Best Bin First algorithm [17] to perform an
+approximate Nearest Neighbor search. This efﬁcient variant
+of the K-d tree search algorithm allows for the indexing
+of higher dimensional spaces which is required when using
+2152
+--- PAGE 3 ---
+HOG vectors or other large descriptors. Instead of searching
+the entire tree in an exhaustive manner, Beis et Lowe [17]
+propose to search the nodes closest to the query sample
+using a priority queue. This queue contains candidate nodes
+ranked according to their distance to the query. The ranking
+determines the order in which the nodes are examined.
+During the search, the siblings of the current node being
+examined are iteratively added to the priority queue. The
+search is terminated when the algorithm scans a predeﬁned
+maximum number of nodes E
+max.
+A nearest neighbor approach is more suitable for the
+challenge dataset due to the large variation in the number of
+training samples of the different classes. Training a learning-
+based classiﬁer such as an SVM on an imbalanced dataset
+often requires parameter ﬁne-tuning, making the system less
+generic.
+During the testing phase, the k Nearest Neighbors (kNN )
+are retrieved for each candidate. The vote of the class, to
+which each of the nearest neighbours belongs is incremented.
+The vote is weighted with the reciprocal of the Euclidean
+distance to the candidate. The maximum vote determines the
+class of the candidate.
+vote
+class =
+k∑
+1
+1
+distance(kNN, candidate) ,k NN ∈class
+(1)
+V. R ANDOM FOREST
+Random Forests were introduced by Breiman and Cutler
+[20]. An ensemble of random trees forms a random forest.
+To classify a sample, the classiﬁcation of each random tree
+in the forest is taken into account. The class label of the
+sample is the one with the majority of the votes.
+A random tree is grown as follows:
+• A subset of n<N training samples is randomly
+chosen with replacement from the original training set
+containing N samples. The tree is grown using this
+subset and is not pruned.
+• A subset of m<M features is randomly chosen at each
+node. The best split at this node is computed using this
+subset.
+The random forests achieve state-of-the-art performance
+in many multi-class classiﬁcation applications. In [18], the
+random forests outperform the SVM in classifying images
+from the Caltech-101 and Caltech-256 data sets. Khoshgof-
+taar et al. show in [19] that random forests perform well on
+binary classiﬁcation problems with imbalanced data sets and
+outperform SVM, Naives Bayes, kNN and C4.5 classiﬁers.
+A further advantage is that they are fast to build, easy to
+implement in a distributed computing environment and they
+enable online learning.
+VI. R
+ESULTS AND ANALYSIS
+Within the scope of the German Trafﬁc Sign Recognition
+Competition [1], a data set containing 43 classes, 26,640
+train images and 12,569 test images are provided. The
+precalculated HOG 1, 2 and 3 for both the train and test
+Fig. 4. Bounding Box of trafﬁc sign image
+TABLE I
+PARAMETERS OF THE HOG DESCRIPTORS
+Name Dimension Cell Block Stride Bins Semicircle
+HOG 1 1568 5x5 10x10 5x5 8 true
+HOG 2 1568 5x5 10x10 5x5 8 false
+HOG 3 2916 4x4 8x8 4x4 9 true
+HOG 4 2592 4x4 8x8 4x4 8 true
+images are also made available. The HOG 4 descriptors are
+computed (both in grayscale and RGB) within the bounding
+box of the trafﬁc sign, i.e. not including the 10% border. Fig.
+4 shows an example image and its bounding box.
+To evaluate the performance of the K-d trees and Random
+Forests, we use four HOG descriptors of sizes 1568, 1568,
+2916 and 2592. The dimensions used to compute these
+descriptors are listed in Table I. The block and cell sizes
+are measured in pixels. All the images used are resized to
+40x40 pixels using a bilinear interpolation.
+We also use the Distance Transform images. Again, the
+images in the bounding box are used. These are resized to
+50x50 pixels. We test both the entire resized image and
+an interior patch of 41x41 pixels, further eliminating the
+background and capturing only the pictogram or characters
+inside the trafﬁc sign.
+The parameters of the two classiﬁers were also varied to
+examine their effect on the classiﬁcation performance.
+A. K-d trees
+The construction and the parameters of the K-d tree are
+described in Section IV. Five nearest neighbors are retrieved
+for each test candidate, i.e. k =5 . This value was determined
+empirically. The performance of the K-d tree depends not
+only on the features used, but also on the value of the E
+max
+parameter. Its effect on the classiﬁcation results is shown
+in Table II. Increasing the E
+max parameter by a factor of
+10 increases the classiﬁcation rate by up to 4.55%, yet also
+increases the average computation time by the same factor.
+The E
+max parameter in the K-d tree is set to 5000 in further
+experiments, since it achieves the best results for all four
+TABLE II
+CLASSIFICATION RESULTS WHEN V ARYING EMAX IN K-DT R E E
+Emax HOG 1 HOG 2 HOG 3 HOG 4 (RGB) Avg ms
+500 71.30 % 68.84 % 71.08 % 90.69 % 1.75
+1000 73.03 % 70.40 % 72.75 % 91.44 % 3.58
+1500 73.76 % 71.25 % 73.65 % 92.00 % 5.37
+2000 73.94 % 71.87 % 74.00 % 92.29 % 7.16
+2500 74.37 % 72.03 % 74.53 % 92.36 % 8.95
+5000 74.92 % 73.39 % 75.03 % 92.70 % 17.9
+2153
+--- PAGE 4 ---
+TABLE III
+CONFUSION MATRIX OF SPEED LIMITS USING HOG 3 AND K-D TREE
+Speed Limit 20 30 50 60 70 80 End 80 100 120
+20 14 0 0 0 0 0 0 0 0
+30 13 456 33 13 9 39 0 3 0
+50 7 48 320 18 0 6 0 1 0
+60 0 31 68 304 4 69 0 5 1
+70 17 24 78 6 576 30 0 3 5
+80 5 125 154 82 36 360 0 25 52
+End 80 0 1 0 0 0 0 116 0 0
+100 1 27 47 25 8 67 4 372 99
+120 3 8 36 1 27 17 0 69 290
+TABLE IV
+CONFUSION MATRIX OF SPEED LIMITS USING SPATIALLY WEIGHTED
+HOG 3 AND K-DT R E E
+Speed Limit 20 30 50 60 70 80 End 80 100 120
+20 39 0 0 0 0 0 0 0 0
+30 8 588 4 4 0 30 0 0 0
+50 1 18 534 9 2 15 0 1 0
+60 0 6 41 399 0 21 0 0 0
+70 7 13 21 3 645 8 0 1 3
+80 5 84 121 34 7 482 0 4 26
+End 80 0 0 0 0 0 0 120 0 0
+100 0 6 12 1 0 30 0 413 62
+120 0 4 16 0 6 11 0 60 358
+HOG descriptor sizes.
+The HOG 2 descriptor has a poorer overall performance
+than HOG 1 and HOG 3. The former computes signed
+gradient orientations i.e. 0 ◦ to 360◦, while the two latter
+use unsigned gradients i.e. 0 ◦ to 180 ◦. When using the
+same number of bins, the binning is coarser in the HOG
+2 descriptor i.e. the bins are larger (45
+◦ per bin) than in the
+HOG 1 (22.5◦per bin) and HOG 3 (20◦per bin) descriptors.
+A ﬁner spatial binning better describes the characteristics of
+each trafﬁc sign class.
+HOG 4 performs the best with a classiﬁcation rate of
+92.9%. It not only has a ﬁne spatial binning but is also
+computed on the bounding box rather than including the 10%
+border i.e. taking less background information into account.
+The classiﬁcation rate is improved by about 20% when using
+the bounding box of the image. This shows the extent at
+which the varying background in the 10% around the trafﬁc
+sign perturbates the similarity measurement and the nearest
+neighbor approach.
+Spatial Weighting
+As shown in Table III, the 30, 50, 60 and 80 speed
+limits are often confused. To reinforce the classiﬁcation of
+the details inside the trafﬁc sign, we introduce the spatial
+weighting of the HOG descriptors in the K-d tree. In the
+K-d tree, the difference between each block of the HOG
+descriptor of the training sample and the corresponding one
+in the test sample is multiplied by a weight w ∈ ]0, 1[,
+depending on the position of the block. The weight function
+is a 2-dimensional Gaussian that allocates a higher weight
+to the interior blocks than those along the border. Table IV
+shows the improvement of the overall classiﬁcation result
+from 75.03% to 90.39% when using the spatial weighting.
+Distance Transforms
+To further evaluate the effect of the features used on
+the performance of the K-d tree, we also use the Distance
+Transforms. The results obtained are shown in Table V.
+The HOG descriptors achieve higher classiﬁcation results
+TABLE V
+CLASSIFICATION RESULTS OF DISTANCE TRANSFORM FEATURES USING
+K-DT R E E
+Feature Bottom hat Canny
+DT 50x50 51.5 % 50.4 %
+DT 41x41 67.1 % 63.1 %
+TABLE VI
+CLASSIFICATION RESULTS WHEN V ARYING THE PARAMETERS OF THE
+RANDOM FORESTS USING THE HOG 2 DESCRIPTOR
+Nb samples Nb Features Nb Trees Classiﬁcation Rate
+Features
+100 10 500 95.5 %
+100 50 500 97.1 %
+100 75 500 97.0 %
+100 100 500 97.1 %
+Samples
+10 100 500 97.1 %
+100 100 500 97.2 %
+500 100 500 95.2 %
+Trees
+100 100 50 96.0 %
+100 100 100 96.7 %
+100 100 300 97.2 %
+100 100 500 97.1 %
+100 100 750 97.2 %
+than the DT. Eliminating the background information leads
+to a higher comparison precision in the K-d tree and a
+better performance. The classiﬁcation rate is increased by
+16% in the bottom hat and 13% in the Canny edge based
+DT when using the interior patch rather than the entire
+image. The bottom hat thresholding approach achieves higher
+classiﬁcation rates than that using the Canny edge detection.
+B. Random F orests
+To evaluate the performance of the Random Forest classi-
+ﬁer, we use the different sized HOG descriptors and vary its
+parameters: the number of trees in the forest, the number
+of features to be chosen at random and the size of the
+training sample subset. The structure of the Random Forests
+and their parameters are explained in Section V. The results
+of changing the parameters are shown in Table VI. The
+feature used is the HOG 2 descriptor. The performance of
+the Random Forests does not vary signiﬁcantly (0 to 2%)
+when the parameters are changed, which makes them more
+generic and easier to use.
+Table VII shows the classiﬁcation results of the Random
+Forests for the four different HOG descriptors. The number
+of trees is set to 500, the number of features and samples
+to 100. The HOG 2 descriptor perform slightly better than
+the other three. The Random Forests achieve about 20%
+TABLE VII
+CLASSIFICATION RESULTS OF THE RANDOM FORESTS USING DIFFERENT
+HOG DESCRIPTORS
+Descriptor Classiﬁcation Rate
+HOG 1 95.1 %
+HOG 2 97.2 %
+HOG 3 95.2 %
+HOG 4 (grayscale) 94.1 %
+HOG 4 (RGB) 95.1 %
+2154
+--- PAGE 5 ---
+TABLE VIII
+CLASSIFICATION RESULTS OF V ARIOUS FEATURES USING RANDOM
+FORESTS
+Feature Bottom hat Canny
+DT 50x50 81.2 % 77.8 %
+DT 41x41 81.8 % 77.4 %
+higher classiﬁcation rates than the K-d trees when using
+the HOG 1, 2 and 3 descriptors, but only about 2% when
+using HOG 4. Since a small subset of 100 features and 100
+training samples are used to construct the random trees, the
+probability of choosing the HOG descriptors of the 10%
+border region is small and the perturbation of the similarity
+measure caused by the background is less signiﬁcant. The
+randomness of the random forest classiﬁer makes it less
+sensitive to the variations than the K-d tree, which uses all the
+HOG descriptor values. The color information in the HOG
+4 descriptor did not signiﬁcantly improve the classiﬁcation
+results.
+Table VIII shows the results obtained from building Ran-
+dom Forests using the Distance Transforms. The number of
+random trees in the forest is set to 500 and 100 variables and
+samples were chosen at random for their construction. The
+Random Forests perform better than the K-d trees using the
+Distance Transforms. The classiﬁcation rates are increased
+by up to 30%.
+VII. C
+ONCLUSIONS AND FUTURE WORKS
+In this paper, we use K-d trees and Random Forests
+to classify 43 types of trafﬁc signs. Different size HOG
+descriptors and Distance Transforms are used to evaluate
+the performance of the these two tree classiﬁers on images
+from the German Trafﬁc Sign Benchmark data set [1]. The
+results show that the ﬁner spatial binning in the HOG
+descriptor achieves better results. The K-d tree achieves a
+classiﬁcation result of 92.9% with HOG descriptors and 67%
+with the Distance Transforms. The Random Forests improve
+the results to 97.2% and 81.8% respectively.
+The Random Forests are less sensitive to variations in
+the background than the K-d trees because of the random
+selection of the variables. This is shown by testing HOG
+descriptors which are computed on images with and without
+a 10% border around the trafﬁc sign. The performance of
+the K-d tree increases by up to 20% when excluding the
+border while that of the Random Forests is not inﬂuenced
+by the variations of the background. The advantage of K-d
+trees over the Random Forests is that they are faster to build,
+query and update. They also require less memory, since they
+consist of a single tree rather than an ensemble.
+Future work includes using the spatial weighting in the
+Random Forests and exploit other apriori knowledge such as
+the feature importance and variance to optimize the feature
+selection and improve the classiﬁcation results.
+R
+EFERENCES
+[1] J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel, “The German
+Trafﬁc Sign Recognition Benchmark: A multi-class classiﬁcation com-
+petition,” in International Joint Conference on Neural Networks, 2011.
+[2] F. Zaklouta and B. Stanciulescu, “Warning trafﬁc sign recognition
+using a hog-based k-d tree,” in Intelligent V ehicles, 2011.
+[3] A. De La Escalera, L. Moreno, M. Salichs, and J. Armingol, “Road
+trafﬁc sign detection and classiﬁcation,” IEEE Transactions on Indus-
+trial Electronics, vol. 44, no. 6, pp. 848–859, 1997.
+[4] C. Bahlmann, Y . Zhu, V . Ramesh, M. Pellkofer, and T. Koehler,
+“A system for trafﬁc sign detection, tracking, and recognition using
+color, shape, and motion information,” in Proceedings of the IEEE
+Symposium on Intelligent V ehicles. Citeseer, 2005, pp. 255–260.
+[5] X. Gao, L. Podladchikova, D. Shaposhnikov, K. Hong, and
+N. Shevtsova, “Recognition of trafﬁc signs based on their colour and
+shape features extracted using human vision models,”Journal of Visual
+Communication and Image Representation, vol. 17, no. 4, pp. 675–685,
+2006.
+[6] W.-J. Kuo and C.-C. Lin, “Two-stage road sign detection and recogni-
+tion,” in Multimedia and Expo, 2007 IEEE International Conference
+on, 2007, pp. 1427 –1430.
+[7] U. Franke, D. Gavrila, S. G ¨orzig, F. Lindner, F. Paetzold, and
+C. W ¨ohler, “Autonomous driving approaches downtown,” IEEE In-
+telligent Systems, vol. 13, no. 6, pp. 1–14, 1999.
+[8] A. V ´azquez-Reina, S. Lafuente-Arroyo, P. Siegmann, S. Maldonado-
+Basc´on, and F. Acevedo-Rodr ´ıguez, “Trafﬁc sign shape classiﬁcation
+based on correlation techniques,” in Proceedings of the 5th WSEAS
+International Conference on Signal Processing, Computational Geom-
+etry & Artiﬁcial Vision. World Scientiﬁc and Engineering Academy
+and Society (WSEAS), 2005, pp. 149–154.
+[9] A. Ruta, Y . Li, and X. Liu, “Real-time trafﬁc sign recognition from
+video by class-speciﬁc discriminative features,” Pattern Recognition,
+vol. 43, no. 1, pp. 416–430, 2010.
+[10] S. Maldonado-Bascon, S. Lafuente-Arroyo, P. Gil-Jimenez, H. Gomez-
+Moreno, and F. Lopez-Ferreras, “Road-sign detection and recognition
+based on support vector machines,” IEEE transactions on intelligent
+transportation systems, vol. 8, no. 2, pp. 264–278, 2007.
+[11] P. Gil-Jimenez, S. Lafuente-Arroyo, H. Gomez-Moreno, F. Lopez-
+Ferreras, and S. Maldonado-Bascon, “Trafﬁc sign shape classiﬁcation
+evaluation. Part II. FFT applied to the signature of blobs,” inIntelligent
+V ehicles Symposium, 2005. Proceedings. IEEE. IEEE, 2005, pp. 607–
+612.
+[12] B. Alefs, G. Eschemann, H. Ramoser, and C. Beleznai, “Road sign
+detection from edge orientation histograms,” in 2007 IEEE Intelligent
+V ehicles Symposium, June 2007, pp. 993–998.
+[13] N. Dalal and B. Triggs, “Histograms of oriented gradients for
+human detection,” in International Conference on Computer Vision
+& Pattern Recognition, C. Schmid, S. Soatto, and C. Tomasi,
+Eds., vol. 2, INRIA Rh ˆone-Alpes, ZIRST-655, av. de l’Europe,
+Montbonnot-38334, June 2005, pp. 886–893. [Online]. Available:
+http://lear.inrialpes.fr/pubs/2005/DT05
+[14] Y . Xie, L. Liu, C. Li, and Y . Qu, “Unifying visual saliency with
+HOG feature learning for trafﬁc sign detection,” in Intelligent V ehicles
+Symposium, 2009 IEEE. IEEE, 2009, pp. 24–29.
+[15] X. Qingsong, S. Juan, and L. Tiantian, “A detection and recognition
+method for prohibition trafﬁc signs,” in Image Analysis and Signal
+Processing (IASP), 2010 International Conference on. IEEE, 2010,
+pp. 583–586.
+[16] I. Creusen, R. Wijnhoven, E. Herbschleb, and P. de With, “Color
+exploitation in hog-based trafﬁc sign detection,” in Image Processing
+(ICIP), 2010 17th IEEE International Conference on , 2010, pp. 2669
+–2672.
+[17] J. Beis
+and D. Lowe, “Shape indexing using approximate nearest-
+neighbour search in high-dimensional spaces,” in Computer Vision and
+Pattern Recognition, 1997. Proceedings., 1997 IEEE Computer Society
+Conference on. IEEE, 2002, pp. 1000–1006.
+[18] A. Bosch, A. Zisserman, and X. Munoz, “Image classiﬁcation using
+random forests and ferns,” in Proc. ICCV, 2007.
+[19] T. Khoshgoftaar, M. Golawala, and J. Van Hulse, “An empirical study
+of learning from imbalanced data using random forest,” in 19th IEEE
+International Conference on Tools with Artiﬁcial Intelligence, 2007.
+ICTAI 2007, vol. 2, 2007, pp. 310 –317.
+[20] L. Breiman, “Random forests,” Machine learning , vol. 45, no. 1, pp.
+5–32, 2001.
+2155

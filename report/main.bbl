@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{svm}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock {\em Machine Learning}, 20(3):273--297, 1995.
+
+\bibitem{ellahyani2016}
+Ayoub Ellahyani, Mohamed El~Ansari, and Ilyas El~Jaafari.
+\newblock Traffic sign detection and recognition based on random forests.
+\newblock {\em Applied Soft Computing}, 46:805--815, 2016.
+
+\bibitem{resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 770--778, 2016.
+
+\bibitem{jolliffe2002}
+Ian~T. Jolliffe.
+\newblock {\em Principal Component Analysis}.
+\newblock Springer-Verlag, New York, 2nd edition, 2002.
+
+\bibitem{umap}
+Leland McInnes, John Healy, and James Melville.
+\newblock Umap: Uniform manifold approximation and projection for dimension
+  reduction.
+\newblock {\em arXiv preprint arXiv:1802.03426}, 2018.
+
+\bibitem{gtsrb}
+Johannes Stallkamp, Marc Schlipsing, Jan Salmen, and Christian Igel.
+\newblock The german traffic sign recognition benchmark: A multi-class
+  classification competition.
+\newblock In {\em 2011 International Joint Conference on Neural Networks
+  (IJCNN)}, pages 1453--1460. IEEE, 2011.
+
+\bibitem{inception}
+Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew
+  Wojna.
+\newblock Rethinking the inception architecture for computer vision.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 2818--2826, 2016.
+
+\bibitem{zaklouta2011}
+Fatin Zaklouta, Bogdan Stanciulescu, and Omar Hamdoun.
+\newblock Traffic sign classification using k-d trees and random forests.
+\newblock In {\em 2011 International Joint Conference on Neural Networks
+  (IJCNN)}, pages 2151--2155. IEEE, 2011.
+
+\end{thebibliography}
