@@ -78,17 +78,76 @@ uv venv && source .venv/bin/activate
 uv pip install torch torchvision pandas scikit-learn umap-learn matplotlib seaborn
 ```
 
-### Chạy quy trình Pipeline
+### Chạy quy trình Pipeline Toàn diện (Full Pipeline)
+
+Dự án được thiết kế theo các giai đoạn tuần tự để đảm bảo tính minh bạch và khả năng tái lập kết quả.
+
+#### Giai đoạn 1: Chuẩn bị & EDA
+
+Khám phá dữ liệu và tạo các tài nguyên minh họa cho báo cáo:
 
 ```bash
-# 1. Trích xuất đặc trưng
+# Vẽ biểu đồ phân phối lớp (Class Distribution)
+uv run scripts/plot_class_distribution.py
+
+# Tạo lưới ảnh minh họa mẫu dữ liệu (Dataset Samples)
+uv run scripts/generate_dataset_samples.py
+uv run scripts/generate_meta_grid.py
+```
+
+#### Giai đoạn 2: Trích xuất Đặc trưng (Deep Feature Extraction)
+
+Sử dụng các Backbone mạnh mẽ để chuyển đổi ảnh thô thành vector đặc trưng 2048-D:
+
+```bash
+# Trích xuất với ResNet50 (Phát hiện phần cứng MPS/CUDA tự động)
+uv run scripts/run_resnet.py
+
+# Trích xuất với InceptionV3
 uv run scripts/run_inception.py
+```
 
-# 2. Phân tích không gian đặc trưng (3D)
+#### Giai đoạn 3: Phân tích Đối chứng (Ablation Study)
+
+So sánh năng lực biểu diễn của các kiến trúc thông qua không gian giảm chiều:
+
+```bash
+# So sánh phương sai tích lũy PCA (Thông tin nén)
+uv run scripts/compare_pca_variance.py
+
+# Tính toán các chỉ số phân cụm định lượng (Silhouette, DB Index)
+uv run scripts/calculate_cluster_metrics.py
+
+# Trực quan hóa 3D tương tác (HTML)
 uv run scripts/compare_pca_umap_3d.py
+```
 
-# 3. Huấn luyện và Đánh giá (Final Model)
+#### Giai đoạn 4: Huấn luyện & Đánh giá (Training & Evaluation)
+
+Thực thi các cấu hình SVM khác nhau và đánh giá hiệu năng chi tiết trên tập kiểm thử:
+
+**1. Huấn luyện (Training):**
+
+```bash
+# Huấn luyện Linear SVM bằng SGD (Giải pháp "tốc độ" - Baseline)
+uv run scripts/train_model.py
+
+# Huấn luyện Non-linear SVM với RBF Kernel (Kết quả tối ưu)
 uv run scripts/train_final_svm.py
+```
+
+**2. Đánh giá chi tiết (Evaluation):**
+
+```bash
+# Đánh giá Baseline (Linear SGD): Xuất Report & Confusion Matrix
+uv run scripts/evaluate_model.py
+
+# Đánh giá RBF SVM: Xuất Bảng tổng hợp & Confusion Matrix nhiệt (Red map)
+uv run scripts/evaluate_rbf_svm.py
+
+# Phân tích sâu mẫu dự báo sai (Failure Analysis)
+uv run scripts/extract_misclassified_samples.py
+uv run scripts/visualize_misclassified.py
 ```
 
 ---
@@ -101,7 +160,7 @@ uv run scripts/train_final_svm.py
 
 ---
 
-## �️ Quy trình Làm việc Nhóm (Git Workflow)
+## 🛠️ Quy trình Làm việc Nhóm (Git Workflow)
 
 Để đảm bảo code không bị xung đột và dễ dàng quản lý, yêu cầu tất cả thành viên tuân thủ quy trình sau:
 
@@ -139,7 +198,7 @@ Sau khi hoàn thành, tạo PR trên GitHub để Leader review code trước kh
 
 ---
 
-## �👥 Đội ngũ Thực hiện (Team Members)
+## 👥 Đội ngũ Thực hiện (Team Members)
 
 - **Đỗ Duy Toàn (22BI13420)** - *Team Leader & AI Researcher*
 - Vũ Tùng Lâm (22BI13241)
