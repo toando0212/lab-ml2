@@ -115,17 +115,31 @@ Table \ref{tab:cluster_metrics} presents the quantitative validation calculated 
 
 \begin{figure}[H]
     \centering
-    \begin{tabular}{cc}
-        % MOCKUP FOR 4 FIGURES (PCA 3D vs UMAP 3D)
-        \framebox[0.45\textwidth]{\rule{0pt}{100pt} ResNet50: PCA 3D Visualization} & 
-        \framebox[0.45\textwidth]{\rule{0pt}{100pt} InceptionV3: PCA 3D Visualization} \\
-        (a) Linear Projection (PCA) & (b) Linear Projection (PCA) \\[10pt]
-        \framebox[0.45\textwidth]{\rule{0pt}{100pt} ResNet50: UMAP 3D Visualization} & 
-        \framebox[0.45\textwidth]{\rule{0pt}{100pt} InceptionV3: UMAP 3D Visualization} \\
-        (c) Non-linear Manifold (UMAP) & (d) Non-linear Manifold (UMAP) \\
-    \end{tabular}
-    \caption{Qualitative comparison of feature manifolds. (Mockup for 3D visualization results).}
-    \label{fig:3d_mockup}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../reports/figures/pca_3d_resnet50_static.png}
+        \caption{ResNet50: PCA 3D}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../reports/figures/pca_3d_inceptionv3_static.png}
+        \caption{InceptionV3: PCA 3D}
+    \end{subfigure}
+    \\[20pt]
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../reports/figures/umap_3d_resnet50_static.png}
+        \caption{ResNet50: UMAP 3D}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../reports/figures/umap_3d_inceptionv3_static.png}
+        \caption{InceptionV3: UMAP 3D}
+    \end{subfigure}
+    \caption{Topological comparison of deep feature manifolds. The linear PCA projections (top) show overlapping global structures, while the non-linear UMAP manifolds (bottom) reveal well-separated, compact class clusters, justifying the use of non-linear RBF kernels.}
+    \label{fig:3d_visualization}
 \end{figure}
 
 The empirical evidence from both variance analysis and clustering metrics confirms that ResNet50 provides a more structured and discriminative feature space, making it the primary candidate for achieving high accuracy in the subsequent SVM classification pipeline.
