@@ -1,0 +1,159 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{vietnam}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+% --- CUSTOM COLUMN TYPES ---
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% --- TITLE INFO ---
+\title[Traffic Sign Classification]{Traffic Sign Classification}
+\subtitle{Deep Feature Manifolds \& Hybrid SVM Optimization}
+\author[Toan et al.]{Đỗ Duy Toàn, Vũ Tùng Lâm, Nguyễn Thái An,\\Nguyễn Văn Linh, Phạm Viết Hải Đăng, Tạ Hiếu Nam}
+\institute[USTH]{University of Science and Technology of Hanoi}
+\date[\the\year]{Final Project - \the\year}
+\titlegraphic{\includegraphics[width=1.5cm]{usth.png}}
+
+\begin{document}
+
+% --- TITLE SLIDE ---
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% --- TABLE OF CONTENTS ---
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+% --- SECTION 1: INTRODUCTION ---
+\section{Introduction}
+\begin{frame}{Project Objectives}
+    \begin{itemize}
+        \item \textbf{Goal:} Build a robust traffic sign recognition system for autonomous vehicles.
+        \item \textbf{Key Approach:} Bridge the gap between Deep Learning and Support Vector Machines.
+        \item \textbf{Innovation:} Investigation of Low-Dimensional (3D) Manifold Classification.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dataset: GTSRB (10-class Subset)}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{../reports/figures/dataset_samples.png}
+    \end{center}
+    \begin{itemize}
+        \item Over 10,000 images across 10 distinct traffic sign categories.
+        \item Significant variations in illumination, scale, and environmental noise.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Class Distribution}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{../reports/figures/class_distribution_10_classes.png}
+    \end{center}
+    \begin{itemize}
+        \item Observable class imbalance (e.g., speed limits vs. unique signs).
+        \item Addressed using \textbf{balanced class weights} in SVM.
+    \end{itemize}
+\end{frame}
+
+% --- SECTION 2: METHODOLOGY ---
+\section{Methodology}
+\begin{frame}{Pipeline Architecture}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{../reports/figures/meta_reference.png} 
+    \end{center}
+    \begin{enumerate}
+        \item \textbf{Feature Extraction:} ResNet50 \& InceptionV3 backbones.
+        \item \textbf{Dimensionality Reduction:} PCA \& UMAP (3D).
+        \item \textbf{Classification:} Hybrid SVM (Linear vs. RBF kernels).
+    \end{enumerate}
+\end{frame}
+
+% --- SECTION 3: MANIFOLD STRATEGY ---
+\section{Manifold Strategy}
+\begin{frame}{3D Manifold Visualizations (UMAP)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{../reports/figures/umap_3d_resnet50_static.png}
+            \small ResNet50 Manifold
+        \end{center}
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{../reports/figures/umap_3d_inceptionv3_static.png}
+            \small InceptionV3 Manifold
+        \end{center}
+    \end{columns}
+    \vspace{0.3cm}
+    \textit{UMAP preserves local neighborhood structures, forming dense clusters.}
+\end{frame}
+
+\begin{frame}{Classification in 3D Space}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \begin{itemize}
+            \item \textbf{Discovery:} Linear models (SGDC) fail in 3D ($<$35\%).
+            \item \textbf{Solution:} \textbf{Random Forest} dominates.
+            \item \textbf{Why?} Recursive partitioning isolates non-linear clusters efficiently.
+        \end{itemize}
+        \begin{exampleblock}{Result (RFC 3D)}
+            \textbf{82.28\% Accuracy} (ResNet50).
+        \end{exampleblock}
+        \column{0.4\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{../reports/experiments/manifold_3d/rfc_resnet50_cm.png}
+            \small RFC Confusion Matrix
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% --- SECTION 4: RESULTS ---
+\section{Results}
+\begin{frame}{High-D Classification Results}
+    \begin{table}
+        \centering
+        \small
+        \begin{tabularx}{\textwidth}{L C C}
+            \toprule
+            \textbf{Model Configuration} & \textbf{ResNet50} & \textbf{InceptionV3} \\
+            \midrule
+            SGD-SVM (Linear) & 91.24\% & 88.50\% \\
+            \textbf{RBF-SVM (Hybrid)} & \textbf{95.91\%} & \textbf{97.24\%} \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \begin{center}
+        \includegraphics[width=0.55\textwidth]{../reports/performance/inceptionv3_rbf_confusion_matrix.png}
+        \small Peak Model CM (InceptionV3 + RBF)
+    \end{center}
+\end{frame}
+
+% --- SECTION 5: CONCLUSION ---
+\section{Conclusion}
+\begin{frame}{Key Takeaways}
+    \begin{itemize}
+        \item \textbf{Feature Power:} Pre-trained CNNs provide robust 2048-D manifolds.
+        \item \textbf{SVM Hybrid:} RBF kernels are essential for handling non-linear deep features.
+        \item \textbf{Manifold Density:} 3D projections retain significant discriminative info.
+    \end{itemize}
+    \vspace{0.5cm}
+    \begin{center}
+        \textbf{Project Repository:} \\
+        \url{https://github.com/toando0212/lab-ml2}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \Huge \textbf{Thank You!} \\
+    \vspace{1cm}
+    \large Q\&A
+\end{frame}
+
+\end{document}
