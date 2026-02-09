@@ -1,4 +1,4 @@
-# Phân tích Đối chứng (Ablation Study Analysis)
+# Phân tích Đối chứng (Manifold Strategy Analysis)
 
 Tài liệu này ghi lại các kết quả phân tích định lượng khi so sánh hai kiến trúc trích xuất đặc trưng: **ResNet50** và **InceptionV3**.
 
@@ -139,4 +139,4 @@ Chỉ số Silhouette Score và Davies-Bouldin trên không gian 3 chiều sau k
 ## 6. Tổng kết & Bước tiếp theo (Final Ablation)
 Toàn bộ bằng chứng từ **Phương sai (PCA)**, **Trực quan (3D UMAP)** đến **Chỉ số cụm (Silhouette/DB)** đều đồng thanh gọi tên **ResNet50**.
 
-**Bước 2.3 (Final):** Chạy SVM chính thức. Nếu ResNet50 thắng nốt về Accuracy, chúng ta sẽ có một bài Ablation Study hoàn hảo.
+**Bước 2.3 (Final):** Chạy SVM chính thức. Nếu ResNet50 thắng nốt về Accuracy, chúng ta sẽ có một bài Manifold Strategy hoàn hảo.

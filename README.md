@@ -9,9 +9,9 @@ Báo cáo dự án cuối kỳ môn **Machine Learning and Data Mining II** tạ
 ## 🏆 Thành tựu Nổi bật (Key Highlights)
 
 - **Độ chính xác đỉnh cao (Peak Accuracy):** Đạt **97.24%** với mô hình Hybrid **InceptionV3 - RBF SVM**.
-- **Phân tích Đa chiều:** Sử dụng kỹ thuật giảm chiều phi tuyến **UMAP 3D** để trực quan hóa không gian đặc trưng.
-- **Kiến trúc Modular Monolith:** Hệ thống được thiết kế theo module hóa, tách biệt logic trích xuất, huấn luyện và báo cáo.
-- **Báo cáo chuyên nghiệp:** Tài liệu báo cáo chi tiết dày 22 trang định dạng LaTeX.
+- **Manifold Strategy:** Chứng minh năng lực biểu diễn của đặc trưng 3D UMAP với **Random Forest** đạt **82.28%** (chỉ với 0.14% dung lượng dữ liệu gốc).
+- **Kiến trúc Modular Monolith:** Hệ thống được thiết kế theo module hóa, tách biệt logic trích xuất, huấn luyện và các thực nghiệm chuyên sâu.
+- **Báo cáo chuyên nghiệp:** Tài liệu báo cáo chi tiết dày 25 trang định dạng LaTeX.
 
 ---
 
@@ -57,10 +57,11 @@ graph LR
 ```text
 .
 ├── src/                # Logic cốt lõi (Extractors, Data Loaders)
-├── scripts/            # Kịch bản thực thi (Trích xuất, Huấn luyện, Vẽ biểu đồ)
-├── data/               # Dữ liệu ảnh thô và Đặc trưng đã lưu
+│   └── experiments/    # Mô hình modular cho thực nghiệm Manifold
+├── scripts/            # Kịch bản thực thi (Trích xuất, Huấn luyện, Manifold)
+├── data/               # Dữ liệu ảnh thô và Đặc trưng (2048D & 3D)
 ├── docs/               # Tài liệu chi tiết về chiến lược và phân tích
-├── reports/            # Kết quả đầu ra (Biểu đồ PNG, Trace CSV, Interactive HTML)
+├── reports/            # Kết quả đầu ra (Biểu đồ, Report CSV, Interactive HTML)
 ├── report/             # Toàn bộ mã nguồn LaTeX của báo cáo
 └── main.pdf           # Báo cáo cuối cùng (Final Report)
 ```
@@ -107,18 +108,20 @@ uv run scripts/run_resnet.py
 uv run scripts/run_inception.py
 ```
 
-#### Giai đoạn 3: Phân tích Đối chứng (Ablation Study)
+#### Giai đoạn 3: Phân tích & Thực nghiệm Manifold
 
-So sánh năng lực biểu diễn của các kiến trúc thông qua không gian giảm chiều:
+So sánh năng lực biểu diễn và thực hiện phân loại trên không gian giảm chiều (3D):
 
 ```bash
-# So sánh phương sai tích lũy PCA (Thông tin nén)
+# 1. Phân tích đối chứng (PCA Variance & Cluster Metrics)
 uv run scripts/compare_pca_variance.py
-
-# Tính toán các chỉ số phân cụm định lượng (Silhouette, DB Index)
 uv run scripts/calculate_cluster_metrics.py
 
-# Trực quan hóa 3D tương tác (HTML)
+# 2. Thực nghiệm Manifold Strategy (RFC, SGDC, SVM trên 3D)
+# Script này tự động tạo feature 3D mới và chạy phân loại modular
+uv run scripts/run_3d_manifold_experiment.py
+
+# 3. Trực quan hóa 3D tương tác
 uv run scripts/compare_pca_umap_3d.py
 ```
 
@@ -155,7 +158,7 @@ uv run scripts/visualize_misclassified.py
 ## 📄 Tài liệu Dự án
 
 - **Báo cáo chi tiết:** [report/main.pdf](report/main.pdf)
-- **Phân tích đối chứng:** [docs/ABLATION_STUDY_ANALYSIS.md](docs/ABLATION_STUDY_ANALYSIS.md)
+- **Phân tích chiến lược Manifold:** [docs/MANIFOLD_STRATEGY_ANALYSIS.md](docs/MANIFOLD_STRATEGY_ANALYSIS.md)
 - **Tài liệu tham khảo (References):** Chứa các nghiên cứu tiêu biểu của Stallkamp (GTSRB), Zaklouta (SVM) và He (ResNet).
 
 ---
