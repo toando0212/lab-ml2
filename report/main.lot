@@ -8,4 +8,7 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces Final Classification Accuracy Comparison}}{15}{table.caption.12}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces InceptionV3 Performance: SGD-SVM (Linear) vs. RBF-SVM (Non-linear)}}{15}{table.caption.13}%
 \contentsline {table}{\numberline {4.3}{\ignorespaces ResNet50 Performance: SGD-SVM (Linear) vs. RBF-SVM (Non-linear)}}{16}{table.caption.14}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Classification Accuracy on 3D UMAP Manifolds}}{19}{table.caption.17}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Detailed Performance of RFC on 3D ResNet50 Manifold}}{19}{table.caption.18}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Detailed Performance of RFC on 3D InceptionV3 Manifold}}{20}{table.caption.19}%
 \addvspace {10\p@ }

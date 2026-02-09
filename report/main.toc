@@ -17,6 +17,7 @@
 \contentsline {section}{\numberline {3.4}Experimental Setup and Training Strategy}{12}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Data Partitioning and Preprocessing}{13}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Training Strategies}{13}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Manifold-based Classification Strategy}{13}{subsection.3.4.3}%
 \contentsline {chapter}{\numberline {4}Results and Analysis}{14}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Evaluation Metrics for Classification}{14}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Overall Classification Performance}{15}{section.4.2}%
@@ -26,6 +27,8 @@
 \contentsline {section}{\numberline {4.4}Confusion Matrix and Error Analysis}{16}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Failure Case Analysis}{17}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Discussion}{18}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusion}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Summary of Achievements}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Future Research Directions}{19}{section.5.2}%
+\contentsline {section}{\numberline {4.7}Manifold-based Classification Results}{19}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Why Random Forest Dominates in 3D Space}{20}{subsection.4.7.1}%
+\contentsline {chapter}{\numberline {5}Conclusion}{22}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Achievements}{22}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Future Research Directions}{22}{section.5.2}%

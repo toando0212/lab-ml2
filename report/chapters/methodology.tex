@@ -161,3 +161,12 @@ We evaluate two distinct Support Vector Machine (SVM) configurations, implemente
     \item \textbf{Stochastic Gradient Descent (SGD-SVM):} To handle potential scalability requirements, we implement a linear SVM optimized via SGD with a Hinge loss function. This approach is chosen for its efficiency ($O(N)$ complexity), providing a fast yet robust baseline for linear classification task.
     \item \textbf{Radial Basis Function (RBF-SVM):} To exploit non-linear relationships, we use the RBF kernel: $K(x_i, x_j) = \exp(-\gamma ||x_i - x_j||^2)$. This configuration introduces significantly higher computational complexity ($O(N^2 \cdot D)$). Furthermore, since class probability estimation is required for downstream analysis, an \textbf{internal 5-fold cross-validation} (Platt scaling) is executed during the training phase. This hybrid approach enables the model to find more complex, non-linear decision boundaries to achieve high classification accuracy.
 \end{enumerate}
+
+\subsection{Manifold-based Classification Strategy}
+Beyond the standard high-dimensional classification, we investigate the representational power of the 3D manifolds themselves. This experiment aims to determine if the local topological structures preserved by UMAP are sufficient for accurate classification. We compare three distinct algorithmic families on the 3D coordinate space:
+\begin{itemize}
+    \item \textbf{Random Forest Classifier (RFC):} An ensemble method that utilizes non-linear axis-aligned splits, hypothesizing that tree-based boundaries are better suited for the manifold "clusters."
+    \item \textbf{Linear SGD (SGDC):} Evaluates if the 3D projection maintains linear separability.
+    \item \textbf{SVM-RBF (Low-D):} Tests the efficacy of kernel-based methods in highly compressed feature spaces.
+\end{itemize}
+This dual-track strategy (High-D vs. Low-D) provides a comprehensive view of how information density affects model selection and decision boundary complexity.

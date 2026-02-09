@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  9 FEB 2026 08:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  9 FEB 2026 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,50 +538,71 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks27
 \@floatcapt=\box55
 )
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen187
+\ar@mcellbox=\box56
+\extrarowheight=\dimen188
+\NC@list=\toks28
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box57
+)
+\TX@col@width=\dimen189
+\TX@old@table=\dimen190
+\TX@old@col=\dimen191
+\TX@target=\dimen192
+\TX@delta=\dimen193
+\TX@cols=\count309
+\TX@ftn=\toks29
+)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count309
-\l__pdf_internal_box=\box56
+\l__color_backend_stack_int=\count310
+\l__pdf_internal_box=\box58
 )
 (./main.aux (./chapters/abstract.aux) (./chapters/introduction.aux)
 (./chapters/related_work.aux) (./chapters/methodology.aux)
 (./chapters/results.aux) (./chapters/conclusion.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count310
-\scratchdimen=\dimen187
-\scratchbox=\box57
-\nofMPsegments=\count311
-\nofMParguments=\count312
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count313
-\MPscratchDim=\dimen188
-\MPnumerator=\count314
-\makeMPintoPDFobject=\count315
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count311
+\scratchdimen=\dimen194
+\scratchbox=\box59
+\nofMPsegments=\count312
+\nofMParguments=\count313
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen195
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
+\everyMPtoPDFconversion=\toks31
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -591,7 +612,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 22.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -635,10 +656,10 @@ Package hyperref Info: Link coloring OFF on input line 19.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<usth.png, id=124, 1204.5pt x 602.25pt>
+<usth.png, id=136, 1204.5pt x 602.25pt>
 File: usth.png Graphic file (type png)
 <use usth.png>
-Package pdftex.def Info: usth.png  used on input line 26.
+Package pdftex.def Info: usth.png  used on input line 29.
 (pdftex.def)             Requested size: 227.62206pt x 113.80379pt.
 
 
@@ -655,7 +676,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 \include{chapters/abstract}
+l.56 \include{chapters/abstract}
                                  [1
 
 
@@ -724,7 +745,7 @@ Chapter 2.
 
  (./chapters/methodology.tex
 Chapter 3.
-<../reports/figures/class_distribution_10_classes.png, id=247, 731.3724pt x 410
+<../reports/figures/class_distribution_10_classes.png, id=272, 731.3724pt x 410
 .9754pt>
 File: ../reports/figures/class_distribution_10_classes.png Graphic file (type p
 ng)
@@ -732,7 +753,7 @@ ng)
 Package pdftex.def Info: ../reports/figures/class_distribution_10_classes.png  
 used on input line 9.
 (pdftex.def)             Requested size: 364.19667pt x 204.65315pt.
-<../reports/figures/meta_reference.png, id=251, 854.2314pt x 353.6412pt>
+<../reports/figures/meta_reference.png, id=276, 854.2314pt x 353.6412pt>
 File: ../reports/figures/meta_reference.png Graphic file (type png)
 <use ../reports/figures/meta_reference.png>
 Package pdftex.def Info: ../reports/figures/meta_reference.png  used on input l
@@ -746,7 +767,7 @@ ine 19.
 
 
  <../reports/figures/class_distribution_10_classes.png>]
-<../reports/figures/dataset_samples.png, id=257, 854.2314pt x 360.8682pt>
+<../reports/figures/dataset_samples.png, id=282, 854.2314pt x 360.8682pt>
 File: ../reports/figures/dataset_samples.png Graphic file (type png)
 <use ../reports/figures/dataset_samples.png>
 Package pdftex.def Info: ../reports/figures/dataset_samples.png  used on input 
@@ -776,7 +797,7 @@ Overfull \hbox (2.36555pt too wide) in paragraph at lines 45--45
 
 [10{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
 c}]
-<../reports/figures/pca_variance_comparison.png, id=286, 611.6451pt x 394.5942p
+<../reports/figures/pca_variance_comparison.png, id=312, 611.6451pt x 394.5942p
 t>
 File: ../reports/figures/pca_variance_comparison.png Graphic file (type png)
 <use ../reports/figures/pca_variance_comparison.png>
@@ -791,27 +812,27 @@ Overfull \hbox (9.62001pt too wide) in paragraph at lines 100--101
 u-lated di-rectly on the 2048-dimensional
  []
 
-<../reports/figures/pca_3d_resnet50_static.png, id=296, 1328.965pt x 618.31pt>
+<../reports/figures/pca_3d_resnet50_static.png, id=322, 1328.965pt x 618.31pt>
 File: ../reports/figures/pca_3d_resnet50_static.png Graphic file (type png)
 <use ../reports/figures/pca_3d_resnet50_static.png>
 Package pdftex.def Info: ../reports/figures/pca_3d_resnet50_static.png  used on
  input line 120.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/pca_3d_inceptionv3_static.png, id=297, 1328.965pt x 618.31p
+<../reports/figures/pca_3d_inceptionv3_static.png, id=323, 1328.965pt x 618.31p
 t>
 File: ../reports/figures/pca_3d_inceptionv3_static.png Graphic file (type png)
 <use ../reports/figures/pca_3d_inceptionv3_static.png>
 Package pdftex.def Info: ../reports/figures/pca_3d_inceptionv3_static.png  used
  on input line 126.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/umap_3d_resnet50_static.png, id=298, 1328.965pt x 618.31pt>
+<../reports/figures/umap_3d_resnet50_static.png, id=324, 1328.965pt x 618.31pt>
 
 File: ../reports/figures/umap_3d_resnet50_static.png Graphic file (type png)
 <use ../reports/figures/umap_3d_resnet50_static.png>
 Package pdftex.def Info: ../reports/figures/umap_3d_resnet50_static.png  used o
 n input line 132.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/umap_3d_inceptionv3_static.png, id=299, 1328.965pt x 618.31
+<../reports/figures/umap_3d_inceptionv3_static.png, id=325, 1328.965pt x 618.31
 pt>
 File: ../reports/figures/umap_3d_inceptionv3_static.png Graphic file (type png)
 
@@ -845,7 +866,7 @@ Overfull \hbox (14.23705pt too wide) in paragraph at lines 37--45
 ]
 
 [15]
-<../reports/performance/inceptionv3_confusion_matrix.png, id=332, 867.24pt x 72
+<../reports/performance/inceptionv3_confusion_matrix.png, id=357, 867.24pt x 72
 2.7pt>
 File: ../reports/performance/inceptionv3_confusion_matrix.png Graphic file (typ
 e png)
@@ -853,7 +874,7 @@ e png)
 Package pdftex.def Info: ../reports/performance/inceptionv3_confusion_matrix.pn
 g  used on input line 121.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/inceptionv3_rbf_confusion_matrix.png, id=333, 867.24pt 
+<../reports/performance/inceptionv3_rbf_confusion_matrix.png, id=358, 867.24pt 
 x 722.7pt>
 File: ../reports/performance/inceptionv3_rbf_confusion_matrix.png Graphic file 
 (type png)
@@ -861,7 +882,7 @@ File: ../reports/performance/inceptionv3_rbf_confusion_matrix.png Graphic file
 Package pdftex.def Info: ../reports/performance/inceptionv3_rbf_confusion_matri
 x.png  used on input line 127.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/resnet50_confusion_matrix.png, id=334, 867.24pt x 722.7
+<../reports/performance/resnet50_confusion_matrix.png, id=359, 867.24pt x 722.7
 pt>
 File: ../reports/performance/resnet50_confusion_matrix.png Graphic file (type p
 ng)
@@ -869,7 +890,7 @@ ng)
 Package pdftex.def Info: ../reports/performance/resnet50_confusion_matrix.png  
 used on input line 133.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/resnet50_rbf_confusion_matrix.png, id=335, 867.24pt x 7
+<../reports/performance/resnet50_rbf_confusion_matrix.png, id=360, 867.24pt x 7
 22.7pt>
 File: ../reports/performance/resnet50_rbf_confusion_matrix.png Graphic file (ty
 pe png)
@@ -880,7 +901,7 @@ ng  used on input line 139.
 
 
 [16]
-<../reports/performance/misclassified_samples.png, id=341, 1156.32pt x 578.16pt
+<../reports/performance/misclassified_samples.png, id=366, 1156.32pt x 578.16pt
 >
 File: ../reports/performance/misclassified_samples.png Graphic file (type png)
 <use ../reports/performance/misclassified_samples.png>
@@ -892,26 +913,49 @@ Package pdftex.def Info: ../reports/performance/misclassified_samples.png  used
 [17 <../reports/performance/inceptionv3_confusion_matrix.png> <../reports/perfo
 rmance/inceptionv3_rbf_confusion_matrix.png> <../reports/performance/resnet50_c
 onfusion_matrix.png> <../reports/performance/resnet50_rbf_confusion_matrix.png>
-])
+]
 
 [18 <../reports/performance/misclassified_samples.png>]
+
+[19]
+<../reports/experiments/manifold_3d/rfc_resnet50_cm.png, id=391, 722.7pt x 578.
+16pt>
+File: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png Graphic file (type
+ png)
+<use ../reports/experiments/manifold_3d/rfc_resnet50_cm.png>
+Package pdftex.def Info: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png
+  used on input line 247.
+(pdftex.def)             Requested size: 218.51521pt x 174.80792pt.
+<../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png, id=392, 722.7pt x 5
+78.16pt>
+File: ../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png Graphic file (t
+ype png)
+<use ../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png>
+Package pdftex.def Info: ../reports/experiments/manifold_3d/rfc_inceptionv3_cm.
+png  used on input line 253.
+(pdftex.def)             Requested size: 218.51521pt x 174.80792pt.
+)
+
+[20]
+
+[21 <../reports/experiments/manifold_3d/rfc_resnet50_cm.png> <../reports/experi
+ments/manifold_3d/rfc_inceptionv3_cm.png>]
 \openout2 = `chapters/conclusion.aux'.
 
-
-(./chapters/conclusion.tex
+ (./chapters/conclusion.tex
 Chapter 5.
 )
 
-[19
+[22
 
 
 
 
 ]
 
-[20] (./main.bbl)
+[23] (./main.bbl)
 
-[21
+[24
 
 
 
@@ -923,16 +967,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 478C752B55B22CB5BD7AC71D23E0B6AA;6240.
+(rerunfilecheck)             Checksum: 531978A451E9B16EB6714167A397E786;7019.
  ) 
 Here is how much of TeX's memory you used:
- 13953 strings out of 473190
- 225390 string characters out of 5715800
- 636831 words of memory out of 5000000
- 36881 multiletter control sequences out of 15000+600000
+ 14116 strings out of 473190
+ 228546 string characters out of 5715800
+ 644728 words of memory out of 5000000
+ 37028 multiletter control sequences out of 15000+600000
  575683 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1435b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1435b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
@@ -946,10 +990,10 @@ texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr/local/texlive/20
 st/fonts/type1/vntex/vnr/vnr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/vntex/vnr/vnti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/
 vnr/vntt12.pfb>
-Output written on main.pdf (22 pages, 1565657 bytes).
+Output written on main.pdf (25 pages, 1657751 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 374 compressed objects within 4 object streams
- 98 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
