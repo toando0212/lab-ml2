@@ -1,0 +1,91 @@
+direction: down
+
+vars: {
+  d2-config: {
+    layout-engine: elk
+  }
+}
+
+# Global Styles
+*.style: {
+  font-size: 38
+  stroke-width: 4
+  border-radius: 10
+}
+
+Dataset: "Dataset: GTSRB (10-class Traffic Signs)" {
+  shape: cylinder
+  style: {
+    stroke: "#003366"
+    fill: "#e6f3ff"
+    font-size: 50
+  }
+}
+
+Preprocessing: "Preprocessing\n- Resize (224 for ResNet, 299 for Inception)\n- Z-score Normalization" {
+  style: {
+    stroke: "#333333"
+    fill: "#f8f9fa"
+  }
+}
+
+Extraction: "Deep Feature Extraction\n- Backbones: ResNet50 & InceptionV3\n- Global Average Pooling (2048-D Features)" {
+  style: {
+    stroke: "#b45f06"
+    fill: "#fff2cc"
+  }
+}
+
+Reduction: "Dimensionality Reduction\n- PCA (Global structural variance)\n- UMAP (Local manifold topology)" {
+  style: {
+    stroke: "#38761d"
+    fill: "#d9ead3"
+  }
+}
+
+Analysis: "Quantitative & Qualitative Analysis\n- Silhouette Score & Davies-Bouldin Index\n- 3D Manifold Visualizations" {
+  style: {
+    stroke: "#1155cc"
+    fill: "#c9daf8"
+  }
+}
+
+HighD: "High-D Space (2048-D) Classification\n- Linear SGD baseline\n- Hybrid SVM-RBF optimization" {
+  style: {
+    stroke: "#e69138"
+    fill: "#fce5cd"
+  }
+}
+
+LowD: "Low-D Manifold (3D) Classification\n- Random Forest Classifier\n- Low-D SVM-RBF" {
+  style: {
+    stroke: "#e69138"
+    fill: "#fce5cd"
+  }
+}
+
+Evaluation: "Final Performance Evaluation\n- Accuracy, F1-Score, Confusion Matrix" {
+  shape: diamond
+  style: {
+    stroke: "#45818e"
+    fill: "#d0e0e3"
+    font-size: 45
+  }
+}
+
+# Connections
+Dataset -> Preprocessing
+Preprocessing -> Extraction
+Extraction -> Reduction
+Reduction -> Analysis
+
+# Classification Paths
+Extraction -> HighD
+Reduction -> LowD
+
+# Feedback/Validation links (dashed)
+Analysis -> HighD: { style: { stroke-dash: 5 } }
+Analysis -> LowD: { style: { stroke-dash: 5 } }
+
+HighD -> Evaluation
+LowD -> Evaluation

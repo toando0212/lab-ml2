@@ -7,28 +7,28 @@
 \contentsline {section}{\numberline {2.2}Traffic sign detection and recognition based on random forests (Ellahyani et al., 2016)}{6}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Comparison and Research Context}{6}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Methodology}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dataset Selection}{8}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Feature Extraction}{9}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Architectural Deep-Dive}{9}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}Comparative Analysis of Feature Representations}{10}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Evaluation Criteria}{10}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Information Density Analysis (PCA-based)}{11}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Cluster Discriminability (UMAP-based)}{11}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Experimental Setup and Training Strategy}{12}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Data Partitioning and Preprocessing}{13}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Training Strategies}{13}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Manifold-based Classification Strategy}{13}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {4}Results and Analysis}{14}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Evaluation Metrics for Classification}{14}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Overall Classification Performance}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Comparative Performance Analysis}{15}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}InceptionV3 Feature Performance}{15}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}ResNet50 Feature Performance}{16}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Confusion Matrix and Error Analysis}{16}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Failure Case Analysis}{17}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Discussion}{18}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Manifold-based Classification Results}{19}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Why Random Forest Dominates in 3D Space}{20}{subsection.4.7.1}%
-\contentsline {chapter}{\numberline {5}Conclusion}{22}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Summary of Achievements}{22}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Future Research Directions}{22}{section.5.2}%
+\contentsline {section}{\numberline {3.1}Dataset Selection}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Feature Extraction}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Architectural Deep-Dive}{11}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Comparative Analysis of Feature Representations}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Evaluation Criteria}{12}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Information Density Analysis (PCA-based)}{13}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Cluster Discriminability (UMAP-based)}{14}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Experimental Setup and Training Strategy}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Data Partitioning and Preprocessing}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Training Strategies}{16}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Manifold-based Classification Strategy}{16}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Results and Analysis}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Evaluation Metrics for Classification}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Overall Classification Performance}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparative Performance Analysis}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}InceptionV3 Feature Performance}{18}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}ResNet50 Feature Performance}{19}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Confusion Matrix and Error Analysis}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Failure Case Analysis}{20}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Discussion}{21}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Manifold-based Classification Results}{22}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Why Random Forest Dominates in 3D Space}{23}{subsection.4.7.1}%
+\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Achievements}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Future Research Directions}{25}{section.5.2}%

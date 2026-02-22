@@ -65,15 +65,22 @@
 % --- SECTION 2: METHODOLOGY ---
 \section{Methodology}
 
-\begin{frame}{Pipeline Architecture}
-    \begin{center}
-        \includegraphics[width=0.9\textwidth]{../reports/figures/meta_reference.png} 
-    \end{center}
-    \begin{enumerate}
-        \item \textbf{Extraction:} ResNet50 \& InceptionV3 backbones.
-        \item \textbf{Dimensionality Reduction:} PCA \& UMAP (3D).
-        \item \textbf{Diagnostic Strategy:} Classification on 3D manifolds.
-    \end{enumerate}
+\begin{frame}{System Pipeline Overview}
+    \begin{columns}
+        \column{0.45\textwidth}
+        \begin{center}
+            \includegraphics[height=0.75\textheight]{../reports/figures/pipeline_flow.png}
+        \end{center}
+        
+        \column{0.55\textwidth}
+        \footnotesize
+        \begin{enumerate}
+            \item \textbf{Data \& Preprocessing}: Stratified 10-class selection; Z-score normalization.
+            \item \textbf{Feature Extraction}: Deep CNN backbones as 2048-D semantic encoders.
+            \item \textbf{Geometric Analysis}: Contrast of Global (PCA) vs. Local (UMAP) topology.
+            \item \textbf{Dual-Track ML}: Evaluation on High-D space vs. Compressed 3D manifolds.
+        \end{enumerate}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{3D Manifold Visualizations (UMAP)}
@@ -96,25 +103,7 @@
 % --- SECTION 3: RESULTS & ANALYSIS ---
 \section{Results \& Analysis}
 
-\begin{frame}{Qualitative Manifold Assessment}
-    \begin{table}
-        \centering
-        \small
-        \begin{tabularx}{\textwidth}{L C C}
-            \toprule
-            \textbf{Metric} & \textbf{PCA (Linear)} & \textbf{UMAP (Non-linear)} \\
-            \midrule
-            Silhouette Score ($\uparrow$) & -0.139 & \textbf{-0.060} \\
-            Davies-Bouldin Index ($\downarrow$) & 11.126 & \textbf{6.022} \\
-            \bottomrule
-        \end{tabularx}
-        \caption*{3D Manifold Separability Comparison}
-    \end{table}
-    \begin{itemize}
-        \item \textbf{UMAP Advantage:} ~45\% improvement in DBI.
-        \item \textbf{Non-linearity:} UMAP captures complex structures that PCA fails to isolate.
-    \end{itemize}
-\end{frame}
+
 
 \begin{frame}{Classification in 3D Space}
     \begin{columns}
@@ -179,13 +168,13 @@
 \begin{frame}{Summary}
   \begin{itemize}
     \item Hybrid architectures improve flexibility and performance.
-    \item \textbf{RBF kernels} are essential for 2048-D features.
-    \item 3D projections retain ~82\% accuracy, proving UMAP's density preservation.
+    \item \textbf{RBF kernels} are essential for 2048-D features (achieving up to \textbf{97.24\%} accuracy).
+    \item 3D projections retain \textbf{~82\% accuracy}, proving UMAP's density preservation.
   \end{itemize}
   \vspace{0.4cm}
   \begin{center}
       \textbf{GitHub Repository:} \\
-      \url{https://github.com/toando0212/lab-ml2}
+      \url{https://github.com/toando0212/final-ml2}
   \end{center}
 \end{frame}
 

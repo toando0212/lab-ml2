@@ -1,4 +1,22 @@
 \chapter{Methodology}
+
+The methodology implemented in this research is structured as an multi-phased experimental pipeline, designed to systematically evaluate the efficacy of deep feature representations for traffic sign classification. By bridging the gap between high-capacity convolutional neural networks (CNNs) and robust Support Vector Machines (SVMs), we investigate how different latent space geometries affect decision boundary complexity and overall model performance. The end-to-end flow of this system, from initial data selection to final diagnostic evaluation, is visualized in Figure \ref{fig:pipeline_flow}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../reports/figures/pipeline_flow.png}
+    \caption{End-to-end system architecture and data processing pipeline.}
+    \label{fig:pipeline_flow}
+\end{figure}
+
+The pipeline is organized into four primary functional blocks, each addressing a specific challenge in representation learning and machine learning optimization:
+\begin{enumerate}
+    \item \textbf{Data Acquisition \& Preparation:} This stage focuses on the strategic subsetting of the GTSRB dataset to address inherent class imbalances and the high variance in environmental conditions (e.g., motion blur, illumination). Preprocessing ensures that the raw visual data is normalized and resized to align with the specific inductive biases of the downstream deep extractors.
+    \item \textbf{Deep Representation Learning:} We employ state-of-the-art CNN backbones not as end-to-end classifiers, but as non-linear semantic encoders. These models map the high-dimensional spatial pixel space into a compact, 2048-dimensional latent manifold, intended to capture the core discriminative features of traffic sign categories.
+    \item \textbf{Geometric and Topological Analysis:} To understand the structure of the learned feature space, we employ a dual dimensionality reduction strategy. This block contrasts the global variance-maximization of linear PCA with the local neighborhood-preservation of non-linear UMAP, providing a deterministic foundation for justifying the choice of classification kernels.
+    \item \textbf{Dual-Track Classification Strategy:} The final stage evaluates the robustness of the learned features through two parallel tracks. By comparing performance in the original high-dimensional space against compressed 3D manifolds, we analyze the trade-offs between information density and computational efficiency, utilizing both linear SGD-SVM baselines and optimized hybrid RBF-SVM solutions.
+\end{enumerate}
+
 \section{Dataset Selection}
 The German Traffic Sign Recognition Benchmark (GTSRB) \cite{gtsrb} is a multi-category classification dataset consisting of 43 distinct traffic sign classes. For the purposes of this project, we focused on the first 10 classes to build a representative and computationally efficient classification pipeline. This subset captures a variety of shapes and colors, including speed limits, mandatory, and danger signs. 
 
@@ -43,22 +61,26 @@ To function as fixed feature extractors, the final fully-connected classificatio
 The implementation is carried out using the \texttt{PyTorch} framework and the \texttt{torchvision.models} library. Raw traffic sign images are resized to $224 \times 224 \times 3$ for ResNet50 and $299 \times 299 \times 3$ for InceptionV3 to match the original training specifications.
 
 \section{Comparative Analysis of Feature Representations}
-To rigorously evaluate the quality of the extracted features, we perform a comparative analysis between ResNet50 and InceptionV3. This evaluation employs a dual-framework approach:
+The efficacy of the proposed classification pipeline is fundamentally contingent upon the quality of the latent representations extracted by the convolutional backbones. To rigorously evaluate the discriminative potential of these high-dimensional feature spaces prior to the final classification stage, we conduct a \textit{Quantitative Exploratory Data Analysis (EDA)} through a comparative analysis between ResNet50 and InceptionV3. This evaluation is framed as an assessment of \textbf{Representation Learning} quality, aimed at determining whether the deep extractors effectively encapsulate semantic class identities into distinct, well-separated clusters without explicit supervision during the reduction phase.
+
+To this end, we employ a dual-framework approach to investigate the geometric and topological properties of the feature manifold:
 \begin{itemize}
-    \item \textbf{Linear Projection (PCA):} Assesses the global structural information and information density.
-    \item \textbf{Non-linear Manifold Learning (UMAP):} Evaluates the local topological structure of the 10-class traffic sign clusters in high-dimensional space.
+    \item \textbf{Linear Projection (PCA):} Assesses the global structural information and information density within the primary principal axes.
+    \item \textbf{Non-linear Manifold Learning (UMAP):} Evaluates the local topological structure and the preservation of semantic class clusters in a lower-dimensional embedding.
 \end{itemize}
 The analysis is implemented using \texttt{Scikit-learn}, \texttt{umap-learn}, and \texttt{Matplotlib}.
 
 \subsection{Evaluation Criteria}
-The assessment of feature quality is governed by two primary mathematical indices and a topological analysis:
+In order to provide a deterministic measure of feature quality, we utilize two primary mathematical indices typically associated with unsupervised clustering. In the context of this project, these metrics serve as proxies for \textit{Class Separability}, quantifying the extent to which the deep feature manifold aligns with the ground-truth categorical labels:
 
 \begin{enumerate}
     \item \textbf{Silhouette Score ($S$):} Measures how similar an object is to its own cluster compared to other clusters. For a data point $i$, it is defined as:
     \begin{equation}
         s(i) = \frac{b(i) - a(i)}{\max\{a(i), b(i)\}}
     \end{equation}
-    where $a(i)$ is the mean intra-cluster distance and $b(i)$ is the mean nearest-cluster distance. A value closer to +1 indicates high-quality clustering.
+    where $a(i)$ is the mean intra-cluster distance and $b(i)$ is the mean nearest-cluster distance. A value closer to +1 indicates high-quality clustering, while negative values suggest points are assigned to the wrong clusters or heavy class overlap in Euclidean space. 
+    
+    \textit{Note:} In deep feature manifolds, negative values often reflect non-linear separability rather than poor feature quality, as Euclidean distance may fail to capture the underlying topological structure.
     
     \item \textbf{Davies-Bouldin Index ($DB$):} Evaluates the average "similarity" between clusters, focusing on the ratio of within-cluster scatter to between-cluster separation:
     \begin{equation}
@@ -112,6 +134,12 @@ Table \ref{tab:cluster_metrics} presents the quantitative validation calculated 
         \bottomrule
     \end{tabular}
 \end{table}
+
+The emergence of negative Silhouette scores across both architectures requires careful technical interpretation. While traditional clustering theory suggests that negative values indicate misclassification or poorly defined clusters, we argue that in the context of deep feature manifolds, these results represent a \textit{topological discrepancy} rather than a lack of discriminative power. 
+
+This phenomenon stems primarily from the inherent divergence between Euclidean distance metrics and non-Euclidean manifold geometry. Silhouette indices are intrinsically tied to Euclidean distances, yet high-dimensional deep features typically reside on low-dimensional manifolds characterized by high curvature. Consequently, semantic neighbors on a manifold may appear Euclidean-distant, while unrelated samples may be Euclidean-proximal due to the "curse of dimensionality," leading to localized numerical overlap in the high-dimensional space. Furthermore, the inherent similarity between certain traffic sign categories—most notably within the speed limit family (e.g., 30 km/h vs. 50 km/h)—results in boundary regions that are densely populated and heavily intertwined. 
+
+Ultimately, these negative scores serve as a vital methodological justification. They provide empirical evidence that the feature space is not linearly separable via traditional distance-based partitioning, thereby explicitly necessitating the adoption of non-linear transformation strategies, such as \textit{Manifold Learning (UMAP)} and \textit{Radial Basis Function (RBF)} kernels, to resolve class boundaries that remain inaccessible to linear hyperplanes.
 
 \begin{figure}[H]
     \centering
