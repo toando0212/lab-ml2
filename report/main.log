@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  22 FEB 2026 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  22 FEB 2026 22:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,6 +955,12 @@ ports/figures/umap_3d_inceptionv3_static.png>])
  (./chapters/results.tex
 Chapter 4.
 
+Overfull \hbox (2.43706pt too wide) in paragraph at lines 3--4
+\T5/cmr/m/n/12 This chap-ter presents the fi-nal ex-per-i-men-tal re-sults of t
+he traf-fic sign clas-si-fi-ca-tion pipeline.
+ []
+
+
 Overfull \hbox (14.23705pt too wide) in paragraph at lines 37--45
  [][] 
  []
@@ -1075,7 +1081,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  14135 strings out of 473190
  233299 string characters out of 5715800
- 644824 words of memory out of 5000000
+ 644800 words of memory out of 5000000
  37037 multiletter control sequences out of 15000+600000
  575683 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1097,7 +1103,7 @@ local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb></Volumes/SSD_M2_
 SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnti12.pfb></V
 olumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/
 vntt12.pfb>
-Output written on main.pdf (29 pages, 2032491 bytes).
+Output written on main.pdf (29 pages, 2032457 bytes).
 PDF statistics:
  528 PDF objects out of 1000 (max. 8388607)
  436 compressed objects within 5 object streams

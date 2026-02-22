@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces End-to-end system architecture and data processing pipeline.}}{9}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces End-to-end data processing pipeline.}}{9}{figure.caption.5}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Class distribution of the first 10 selected categories from the GTSRB dataset.}}{10}{figure.caption.6}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Reference icons for the 10 selected traffic sign classes (Class ID 0-9).}}{11}{figure.caption.7}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Real-world training samples corresponding to Class IDs 0-9.}}{11}{figure.caption.8}%
