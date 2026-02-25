@@ -58,6 +58,7 @@
     \end{center}
     \begin{itemize}
         \item 14,670 images across 10 distinct traffic sign categories.
+        \item \textbf{Stratified 80:20 Partition} for training and evaluation.
         \item Significant scale and illumination variations.
     \end{itemize}
 \end{frame}
@@ -75,10 +76,10 @@
         \column{0.55\textwidth}
         \footnotesize
         \begin{enumerate}
-            \item \textbf{Data \& Preprocessing}: Stratified 10-class selection; Z-score normalization.
+            \item \textbf{Data \& Preprocessing}: Stratified 80:20 split; Z-score normalization.
             \item \textbf{Feature Extraction}: Deep CNN backbones as 2048-D semantic encoders.
             \item \textbf{Geometric Analysis}: Contrast of Global (PCA) vs. Local (UMAP) topology.
-            \item \textbf{Dual-Track ML}: Evaluation on High-D space vs. Compressed 3D manifolds.
+            \item \textbf{Dual-Track ML}: 5-Fold CV verification in High-D; 3D Manifold evaluation.
         \end{enumerate}
     \end{columns}
 \end{frame}
@@ -107,7 +108,7 @@
 
 \begin{frame}{Classification in 3D Space}
     \begin{columns}
-        \column{0.5\textwidth}
+        \column{0.48\textwidth}
         \begin{itemize}
             \item \textbf{Insight:} Linear models fail in 3D (<35\%).
             \item \textbf{Success:} \textbf{Random Forest} dominates by recursive partitioning.
@@ -116,13 +117,13 @@
         \begin{table}
             \centering
             \footnotesize
-            \begin{tabular}{lc}
+            \begin{tabular}{lcc}
                 \toprule
-                \textbf{3D Classifier} & \textbf{Acc. (R50)} \\
+                \textbf{3D Classifier} & \textbf{R50} & IncV3 \\
                 \midrule
-                SGDC (Linear) & 28.94\% \\
-                SVM-RBF & 51.74\% \\
-                \textbf{Random Forest} & \textbf{82.28\%} \\
+                SGDC (Linear) & 28.94\% & 33.50\% \\
+                SVM-RBF & 51.74\% & 56.99\% \\
+                \textbf{Random Forest} & \textbf{82.28\%} & 79.55\% \\
                 \bottomrule
             \end{tabular}
         \end{table}
@@ -145,14 +146,14 @@
                 \toprule
                 \textbf{Model} & \textbf{R50} & \textbf{IncV3} \\
                 \midrule
-                SGD (Lin) & 91.2\% & 88.5\% \\
-                \textbf{RBF (Hyb)} & \textbf{95.9\%} & \textbf{97.2\%} \\
+                SGD (Lin) & 87.29\% & 88.31\% \\
+                \textbf{RBF (Hyb)} & \textbf{93.46\%} & \textbf{97.24\%} \\
                 \bottomrule
             \end{tabularx}
-            \caption*{Validation Acc.}
+            \caption*{Accuracy (20\% Test Set)}
         \end{table}
         \footnotesize
-        RBF kernels effectively handle the density of deep manifolds, significantly outperforming linear baselines.
+        Results are verified with \textbf{5-Fold Cross-Validation}. RBF kernels effectively handle the density of deep manifolds, outperforming linear baselines.
 
         \column{0.55\textwidth}
         \begin{center}

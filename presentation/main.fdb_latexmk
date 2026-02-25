@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1772002595.77942 "main.tex" "main.pdf" "main" 1772002597.8965 0
+["pdflatex"] 1772011033.18081 "main.tex" "main.pdf" "main" 1772011035.54396 0
   "../reports/experiments/manifold_3d/rfc_resnet50_cm.png" 1770608344.05745 47051 2617da03d0077a06d17b75ff518e9548 ""
   "../reports/figures/dataset_samples.png" 1770554722.29375 72950 4b9b6fa5c0724eff8787fa8a73f140a7 ""
   "../reports/figures/pipeline_flow.png" 1771773520.8093 784278 b73619a19335d0798e73123a2b3a110c ""
@@ -296,12 +296,12 @@
   "/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1768273129 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1768273075 3345733 8752cf2796f38ec33a53111dbe6f8749 ""
   "/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "main.aux" 1772002597.74476 3472 bd328bb87eb0c99689e37a06d189565e "pdflatex"
-  "main.nav" 1772002597.74574 2112 44f23b3e67e043363b878d3d0561eb0a "pdflatex"
-  "main.out" 1772002597.74543 436 97dac9a0c19c6a245a45c7097e69dc76 "pdflatex"
-  "main.tex" 1772002590.45603 6201 30edc8fc23f9d7b467c79ee5ea6d1acb ""
-  "main.toc" 1772002597.74577 227 44d0f35a5491215070c913e668915c1f "pdflatex"
-  "main.vrb" 1772002596.90102 356 2959d46ae6905c052e1671d157335bf0 "pdflatex"
+  "main.aux" 1772011035.33654 3472 bd328bb87eb0c99689e37a06d189565e "pdflatex"
+  "main.nav" 1772011035.36118 2112 44f23b3e67e043363b878d3d0561eb0a "pdflatex"
+  "main.out" 1772011035.36071 436 97dac9a0c19c6a245a45c7097e69dc76 "pdflatex"
+  "main.tex" 1772011029.87395 6367 e60baffc13dd443a38cedfba63e56200 ""
+  "main.toc" 1772011035.36124 227 44d0f35a5491215070c913e668915c1f "pdflatex"
+  "main.vrb" 1772011034.41368 356 2959d46ae6905c052e1671d157335bf0 "pdflatex"
   "usth.png" 1770610106.0027 14943 3e424f2f3af572af1ee79fc98614e8af ""
   (generated)
   "main.aux"

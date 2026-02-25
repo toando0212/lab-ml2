@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  25 FEB 2026 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  25 FEB 2026 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1667,7 +1667,7 @@ super/cm-super-ts1.enc}]
 File: ../reports/figures/dataset_samples.png Graphic file (type png)
 <use ../reports/figures/dataset_samples.png>
 Package pdftex.def Info: ../reports/figures/dataset_samples.png  used on input 
-line 63.
+line 64.
 (pdftex.def)             Requested size: 215.10196pt x 90.86658pt.
 
 
@@ -1682,10 +1682,10 @@ line 63.
 File: ../reports/figures/pipeline_flow.png Graphic file (type png)
 <use ../reports/figures/pipeline_flow.png>
 Package pdftex.def Info: ../reports/figures/pipeline_flow.png  used on input li
-ne 84.
+ne 85.
 (pdftex.def)             Requested size: 170.19058pt x 186.40567pt.
 
-Overfull \hbox (31.91109pt too wide) in paragraph at lines 84--84
+Overfull \hbox (31.91109pt too wide) in paragraph at lines 85--85
  [] 
  []
 
@@ -1698,7 +1698,7 @@ Overfull \hbox (31.91109pt too wide) in paragraph at lines 84--84
 File: ../reports/figures/umap_3d_resnet50_static.png Graphic file (type png)
 <use ../reports/figures/umap_3d_resnet50_static.png>
 Package pdftex.def Info: ../reports/figures/umap_3d_resnet50_static.png  used o
-n input line 101.
+n input line 102.
 (pdftex.def)             Requested size: 153.64493pt x 71.47682pt.
 <../reports/figures/umap_3d_inceptionv3_static.png, id=88, 1328.965pt x 618.31p
 t>
@@ -1706,12 +1706,12 @@ File: ../reports/figures/umap_3d_inceptionv3_static.png Graphic file (type png)
 
 <use ../reports/figures/umap_3d_inceptionv3_static.png>
 Package pdftex.def Info: ../reports/figures/umap_3d_inceptionv3_static.png  use
-d on input line 101.
+d on input line 102.
 (pdftex.def)             Requested size: 153.64493pt x 71.47682pt.
 
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <10> not available
-(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 101.
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 102.
 
 
 
@@ -1729,7 +1729,7 @@ File: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png Graphic file (type
  png)
 <use ../reports/experiments/manifold_3d/rfc_resnet50_cm.png>
 Package pdftex.def Info: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png
-  used on input line 136.
+  used on input line 137.
 (pdftex.def)             Requested size: 153.64493pt x 122.91692pt.
 
 
@@ -1742,7 +1742,7 @@ File: ../reports/performance/inceptionv3_rbf_confusion_matrix.png Graphic file
 (type png)
 <use ../reports/performance/inceptionv3_rbf_confusion_matrix.png>
 Package pdftex.def Info: ../reports/performance/inceptionv3_rbf_confusion_matri
-x.png  used on input line 163.
+x.png  used on input line 164.
 (pdftex.def)             Requested size: 169.01036pt x 140.8322pt.
 
 
@@ -1754,7 +1754,7 @@ x.png  used on input line 163.
 
 ]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
-79.
+80.
 
 (/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/tex/latex/vntex/t5c
 mtt.fd
@@ -1803,7 +1803,7 @@ M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnss9.pfb><
 r/vnssbx10.pfb></Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/font
 s/type1/vntex/vnr/vnssi10.pfb></Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/
 texmf-dist/fonts/type1/vntex/vnr/vntt10.pfb>
-Output written on main.pdf (14 pages, 793438 bytes).
+Output written on main.pdf (14 pages, 794357 bytes).
 PDF statistics:
  178 PDF objects out of 1000 (max. 8388607)
  126 compressed objects within 2 object streams

@@ -47,7 +47,7 @@ Specifically, we address the question: "How can we leverage latent space represe
 **Script:**  
 To conduct our research, we utilized the German Traffic Sign Recognition Benchmark (GTSRB). This is an industry-standard dataset featuring real-world challenges such as lighting variations, motion blur, and perspective changes.
 
-We selected a representative subset of 10 classes with over 10,000 images to ensure experimental validity and computational efficiency. These classes include speed limits, mandatory signs, and danger signs, providing a diverse mix of shapes and colors.
+We selected a representative subset of 10 classes with exactly \textbf{14,670 images} to ensure experimental validity and computational efficiency. These classes include speed limits, mandatory signs, and danger signs, providing a diverse mix of shapes and colors.
 
 ---
 
@@ -91,9 +91,9 @@ However, when using **Random Forest**, the accuracy soared to **82.28%** on the 
 **Duration:** 1:45  
 
 **Script:**  
-Moving to the results in the full 2048-dimensional space. As expected, non-linear models dominate.
+Moving to the results in the full 2048-dimensional space. To ensure statistical reliability, these metrics were evaluated on a \textbf{stratified 20\% test set} and further verified through \textbf{5-fold Cross-Validation}.
 
-The combination of **InceptionV3 and the RBF Kernel** achieved a peak accuracy of **97.24%**. Using the RBF kernel allows us to find more complex decision boundaries in high-dimensional space, effectively resolving errors between visually similar signs like 30 km/h and 50 km/h—which are typical weak points for standard linear classifiers.
+As expected, non-linear models dominate. The combination of \textbf{InceptionV3 and the RBF Kernel} achieved a peak accuracy of \textbf{97.24\%}. Using the RBF kernel allows us to find more complex decision boundaries in high-dimensional space, effectively resolving errors between visually similar signs like 30 km/h and 50 km/h—which are typical weak points for standard linear classifiers.
 
 ---
 
