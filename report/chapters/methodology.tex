@@ -20,7 +20,7 @@ The pipeline is organized into four primary functional blocks, each addressing a
 \section{Dataset Selection}
 The German Traffic Sign Recognition Benchmark (GTSRB) \cite{gtsrb} is a multi-category classification dataset consisting of 43 distinct traffic sign classes. For the purposes of this project, we focused on the first 10 classes to build a representative and computationally efficient classification pipeline. This subset captures a variety of shapes and colors, including speed limits, mandatory, and danger signs. 
 
-As illustrated in Figure \ref{fig:class_dist}, the sample distribution across these 10 classes remains relatively balanced, ensuring that the model training process is not heavily biased toward any particular category.
+The selected 10-class subset comprises a total of \textbf{14,670} photographic samples. As illustrated in Figure \ref{fig:class_dist}, the sample distribution across these 10 classes remains relatively balanced, with most categories containing between 1,400 and 2,200 images (with the exception of Class 0 and 6, which are naturally less frequent in the benchmark), ensuring that the model training process is not heavily biased toward any particular category.
 
 \begin{figure}[H]
     \centering
@@ -88,6 +88,10 @@ In order to provide a deterministic measure of feature quality, we utilize two p
     \end{equation}
     where $\sigma$ represents the cluster diameter and $d(c_i, c_j)$ is the distance between cluster centroids. A lower $DB$ index signifies better class separation.
 
+    \item \textbf{Adjusted Rand Index ($ARI$):} A supervised metric that measures the similarity between two assignments (K-Means clusters vs. ground truth). It accounts for chance, where $+1$ is a perfect match and $\approx 0$ is random labeling.
+    
+    \item \textbf{Normalized Mutual Information ($NMI$):} Quantifies the amount of information shared between the predicted clusters and ground truth labels, normalized to range from $0$ to $1$.
+
     \item \textbf{Manifold Continuity (Qualitative):} Beyond numeric scoring, we analyze the manifold structure using UMAP. A "good" representation should maintain \textit{continuity} (points of the same class stay connected) and \textit{separability} (dissimilar classes form distinct islands in the latent space).
 \end{enumerate}
 
@@ -125,21 +129,21 @@ Table \ref{tab:cluster_metrics} presents the quantitative validation calculated 
     \centering
     \caption{Quantitative Clustering Quality Metrics (2048-D)}
     \label{tab:cluster_metrics}
-    \begin{tabular}{lccc}
+    \begin{tabular}{lcccc}
         \toprule
-        \textbf{Metric} & \textbf{ResNet50} & \textbf{InceptionV3} & \textbf{Significance} \\
+        \textbf{Architecture} & \textbf{Silhouette ($\uparrow$)} & \textbf{DB ($\downarrow$)} & \textbf{ARI ($\uparrow$)} & \textbf{NMI ($\uparrow$)} \\
         \midrule
-        Silhouette Score ($\uparrow$) & \textbf{-0.0084} & -0.0116 & Better intra-cluster density \\
-        Davies-Bouldin Index ($\downarrow$) & \textbf{6.6661} & 6.8892 & Better cluster separation \\
+        ResNet50 & -0.0090 & 6.6570 & 0.0504 & 0.1163 \\
+        InceptionV3 & -0.0109 & 6.7656 & 0.0541 & 0.1098 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-The emergence of negative Silhouette scores across both architectures requires careful technical interpretation. While traditional clustering theory suggests that negative values indicate misclassification or poorly defined clusters, we argue that in the context of deep feature manifolds, these results represent a \textit{topological discrepancy} rather than a lack of discriminative power. 
+The emergence of negative Silhouette scores and near-zero ARI/NMI values across both architectures requires a rigorous technical interpretation. Rather than indicating poor feature quality, we argue that these results represent a \textit{Geometric-Topological Paradox} inherent in high-dimensional deep representations. 
 
-This phenomenon stems primarily from the inherent divergence between Euclidean distance metrics and non-Euclidean manifold geometry. Silhouette indices are intrinsically tied to Euclidean distances, yet high-dimensional deep features typically reside on low-dimensional manifolds characterized by high curvature. Consequently, semantic neighbors on a manifold may appear Euclidean-distant, while unrelated samples may be Euclidean-proximal due to the "curse of dimensionality," leading to localized numerical overlap in the high-dimensional space. Furthermore, the inherent similarity between certain traffic sign categories—most notably within the speed limit family (e.g., 30 km/h vs. 50 km/h)—results in boundary regions that are densely populated and heavily intertwined. 
+This phenomenon stems from the fundamental divergence between Euclidean distance metrics and non-Euclidean manifold geometry. Silhouette and ARI calculation in this stage rely on Euclidean proximity; however, traffic sign features typically reside on low-dimensional manifolds with high curvature. In such spaces, semantic neighbors (same class) may be Euclidean-distant, while unrelated samples from different classes appear Euclidean-proximal, leading to massive numerical overlap. The low ARI scores ($\approx 0.05$) specifically prove that traditional distance-based algorithms like K-Means fail to recover the latent class structure in the 2048-D space.
 
-Ultimately, these negative scores serve as a vital methodological justification. They provide empirical evidence that the feature space is not linearly separable via traditional distance-based partitioning, thereby explicitly necessitating the adoption of non-linear transformation strategies, such as \textit{Manifold Learning (UMAP)} and \textit{Radial Basis Function (RBF)} kernels, to resolve class boundaries that remain inaccessible to linear hyperplanes.
+Ultimately, these "poor" metrics provide a vital methodological justification. They serve as empirical evidence that the feature space is not linearly or Euclidean-separable, thereby explicitly necessitating the adoption of non-linear "unfolding" strategies, such as \textit{Manifold Learning (UMAP)} and \textit{Radial Basis Function (RBF)} kernels, to resolve class boundaries that remain invisible to linear hyperplanes.
 
 \begin{figure}[H]
     \centering

@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Information Density Analysis (PCA-based)}{13}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Cluster Discriminability (UMAP-based)}{14}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Experimental Setup and Training Strategy}{15}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Data Partitioning and Preprocessing}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}Data Partitioning and Preprocessing}{15}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Training Strategies}{16}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Manifold-based Classification Strategy}{16}{subsection.3.4.3}%
 \contentsline {chapter}{\numberline {4}Results and Analysis}{17}{chapter.4}%

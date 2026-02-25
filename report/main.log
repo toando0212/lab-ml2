@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  22 FEB 2026 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.13)  25 FEB 2026 13:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -757,8 +757,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/upd
 map/pdftex.map} <./usth.png>]
-
-[2]
 \openout2 = `chapters/abstract.aux'.
 
  (./chapters/abstract.tex)
@@ -778,13 +776,7 @@ l.58 \include{chapters/abstract}
 
 
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.62 \newpage
-              [2
+[2
 
 
 
@@ -833,7 +825,7 @@ Chapter 2.
 
  (./chapters/methodology.tex
 Chapter 3.
-<../reports/figures/pipeline_flow.png, id=279, 3525.17pt x 3860.4225pt>
+<../reports/figures/pipeline_flow.png, id=276, 3525.17pt x 3860.4225pt>
 File: ../reports/figures/pipeline_flow.png Graphic file (type png)
 <use ../reports/figures/pipeline_flow.png>
 Package pdftex.def Info: ../reports/figures/pipeline_flow.png  used on input li
@@ -855,7 +847,7 @@ Overfull \hbox (1.1611pt too wide) in paragraph at lines 16--17
 
 
 [9 <../reports/figures/pipeline_flow.png>]
-<../reports/figures/class_distribution_10_classes.png, id=295, 731.3724pt x 410
+<../reports/figures/class_distribution_10_classes.png, id=292, 731.3724pt x 410
 .9754pt>
 File: ../reports/figures/class_distribution_10_classes.png Graphic file (type p
 ng)
@@ -863,7 +855,7 @@ ng)
 Package pdftex.def Info: ../reports/figures/class_distribution_10_classes.png  
 used on input line 27.
 (pdftex.def)             Requested size: 364.19667pt x 204.65315pt.
-<../reports/figures/meta_reference.png, id=298, 854.2314pt x 353.6412pt>
+<../reports/figures/meta_reference.png, id=295, 854.2314pt x 353.6412pt>
 File: ../reports/figures/meta_reference.png Graphic file (type png)
 <use ../reports/figures/meta_reference.png>
 Package pdftex.def Info: ../reports/figures/meta_reference.png  used on input l
@@ -872,7 +864,7 @@ ine 37.
 
 
 [10 <../reports/figures/class_distribution_10_classes.png>]
-<../reports/figures/dataset_samples.png, id=305, 854.2314pt x 360.8682pt>
+<../reports/figures/dataset_samples.png, id=302, 854.2314pt x 360.8682pt>
 File: ../reports/figures/dataset_samples.png Graphic file (type png)
 <use ../reports/figures/dataset_samples.png>
 Package pdftex.def Info: ../reports/figures/dataset_samples.png  used on input 
@@ -897,17 +889,17 @@ Overfull \hbox (2.36555pt too wide) in paragraph at lines 63--63
 
 [12{/Volumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/
 cm-super/cm-super-ts1.enc}]
-<../reports/figures/pca_variance_comparison.png, id=329, 611.6451pt x 394.5942p
+<../reports/figures/pca_variance_comparison.png, id=326, 611.6451pt x 394.5942p
 t>
 File: ../reports/figures/pca_variance_comparison.png Graphic file (type png)
 <use ../reports/figures/pca_variance_comparison.png>
 Package pdftex.def Info: ../reports/figures/pca_variance_comparison.png  used o
-n input line 114.
+n input line 118.
 (pdftex.def)             Requested size: 364.19667pt x 234.95805pt.
 
 
 [13]
-Overfull \hbox (9.62001pt too wide) in paragraph at lines 122--123
+Overfull \hbox (9.62001pt too wide) in paragraph at lines 126--127
 []\T5/cmr/m/n/12 Table []3.2[] presents the quan-ti-ta-tive val-i-da-tion cal-c
 u-lated di-rectly on the 2048-dimensional
  []
@@ -915,33 +907,33 @@ u-lated di-rectly on the 2048-dimensional
 
 
 [14 <../reports/figures/pca_variance_comparison.png>]
-<../reports/figures/pca_3d_resnet50_static.png, id=349, 1328.965pt x 618.31pt>
+<../reports/figures/pca_3d_resnet50_static.png, id=348, 1328.965pt x 618.31pt>
 File: ../reports/figures/pca_3d_resnet50_static.png Graphic file (type png)
 <use ../reports/figures/pca_3d_resnet50_static.png>
 Package pdftex.def Info: ../reports/figures/pca_3d_resnet50_static.png  used on
- input line 148.
+ input line 152.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/pca_3d_inceptionv3_static.png, id=350, 1328.965pt x 618.31p
+<../reports/figures/pca_3d_inceptionv3_static.png, id=349, 1328.965pt x 618.31p
 t>
 File: ../reports/figures/pca_3d_inceptionv3_static.png Graphic file (type png)
 <use ../reports/figures/pca_3d_inceptionv3_static.png>
 Package pdftex.def Info: ../reports/figures/pca_3d_inceptionv3_static.png  used
- on input line 154.
+ on input line 158.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/umap_3d_resnet50_static.png, id=351, 1328.965pt x 618.31pt>
+<../reports/figures/umap_3d_resnet50_static.png, id=350, 1328.965pt x 618.31pt>
 
 File: ../reports/figures/umap_3d_resnet50_static.png Graphic file (type png)
 <use ../reports/figures/umap_3d_resnet50_static.png>
 Package pdftex.def Info: ../reports/figures/umap_3d_resnet50_static.png  used o
-n input line 160.
+n input line 164.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
-<../reports/figures/umap_3d_inceptionv3_static.png, id=352, 1328.965pt x 618.31
+<../reports/figures/umap_3d_inceptionv3_static.png, id=351, 1328.965pt x 618.31
 pt>
 File: ../reports/figures/umap_3d_inceptionv3_static.png Graphic file (type png)
 
 <use ../reports/figures/umap_3d_inceptionv3_static.png>
 Package pdftex.def Info: ../reports/figures/umap_3d_inceptionv3_static.png  use
-d on input line 166.
+d on input line 170.
 (pdftex.def)             Requested size: 218.51521pt x 101.65822pt.
 
 
@@ -975,7 +967,7 @@ Overfull \hbox (14.23705pt too wide) in paragraph at lines 37--45
 ]
 
 [18]
-<../reports/performance/inceptionv3_confusion_matrix.png, id=384, 867.24pt x 72
+<../reports/performance/inceptionv3_confusion_matrix.png, id=383, 867.24pt x 72
 2.7pt>
 File: ../reports/performance/inceptionv3_confusion_matrix.png Graphic file (typ
 e png)
@@ -983,7 +975,7 @@ e png)
 Package pdftex.def Info: ../reports/performance/inceptionv3_confusion_matrix.pn
 g  used on input line 121.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/inceptionv3_rbf_confusion_matrix.png, id=385, 867.24pt 
+<../reports/performance/inceptionv3_rbf_confusion_matrix.png, id=384, 867.24pt 
 x 722.7pt>
 File: ../reports/performance/inceptionv3_rbf_confusion_matrix.png Graphic file 
 (type png)
@@ -991,7 +983,7 @@ File: ../reports/performance/inceptionv3_rbf_confusion_matrix.png Graphic file
 Package pdftex.def Info: ../reports/performance/inceptionv3_rbf_confusion_matri
 x.png  used on input line 127.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/resnet50_confusion_matrix.png, id=386, 867.24pt x 722.7
+<../reports/performance/resnet50_confusion_matrix.png, id=385, 867.24pt x 722.7
 pt>
 File: ../reports/performance/resnet50_confusion_matrix.png Graphic file (type p
 ng)
@@ -999,7 +991,7 @@ ng)
 Package pdftex.def Info: ../reports/performance/resnet50_confusion_matrix.png  
 used on input line 133.
 (pdftex.def)             Requested size: 218.51521pt x 182.08607pt.
-<../reports/performance/resnet50_rbf_confusion_matrix.png, id=387, 867.24pt x 7
+<../reports/performance/resnet50_rbf_confusion_matrix.png, id=386, 867.24pt x 7
 22.7pt>
 File: ../reports/performance/resnet50_rbf_confusion_matrix.png Graphic file (ty
 pe png)
@@ -1010,7 +1002,7 @@ ng  used on input line 139.
 
 
 [19]
-<../reports/performance/misclassified_samples.png, id=393, 1156.32pt x 578.16pt
+<../reports/performance/misclassified_samples.png, id=392, 1156.32pt x 578.16pt
 >
 File: ../reports/performance/misclassified_samples.png Graphic file (type png)
 <use ../reports/performance/misclassified_samples.png>
@@ -1027,7 +1019,7 @@ onfusion_matrix.png> <../reports/performance/resnet50_rbf_confusion_matrix.png>
 [21 <../reports/performance/misclassified_samples.png>]
 
 [22]
-<../reports/experiments/manifold_3d/rfc_resnet50_cm.png, id=417, 722.7pt x 578.
+<../reports/experiments/manifold_3d/rfc_resnet50_cm.png, id=416, 722.7pt x 578.
 16pt>
 File: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png Graphic file (type
  png)
@@ -1035,7 +1027,7 @@ File: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png Graphic file (type
 Package pdftex.def Info: ../reports/experiments/manifold_3d/rfc_resnet50_cm.png
   used on input line 247.
 (pdftex.def)             Requested size: 218.51521pt x 174.80792pt.
-<../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png, id=418, 722.7pt x 5
+<../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png, id=417, 722.7pt x 5
 78.16pt>
 File: ../reports/experiments/manifold_3d/rfc_inceptionv3_cm.png Graphic file (t
 ype png)
@@ -1079,8 +1071,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 531978A451E9B16EB6714167A397E786;7019.
  ) 
 Here is how much of TeX's memory you used:
- 14135 strings out of 473190
- 233299 string characters out of 5715800
+ 14137 strings out of 473190
+ 233313 string characters out of 5715800
  644800 words of memory out of 5000000
  37037 multiletter control sequences out of 15000+600000
  575683 words of font info for 68 fonts, out of 8000000 for 9000
@@ -1103,10 +1095,10 @@ local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb></Volumes/SSD_M2_
 SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/vnti12.pfb></V
 olumes/SSD_M2_SATA_1TB/usr/local/texlive/2025/texmf-dist/fonts/type1/vntex/vnr/
 vntt12.pfb>
-Output written on main.pdf (29 pages, 2032457 bytes).
+Output written on main.pdf (28 pages, 2033774 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
+ 527 PDF objects out of 1000 (max. 8388607)
  436 compressed objects within 5 object streams
- 116 named destinations out of 1000 (max. 500000)
+ 118 named destinations out of 1000 (max. 500000)
  350 words of extra memory for PDF output out of 10000 (max. 10000000)
 

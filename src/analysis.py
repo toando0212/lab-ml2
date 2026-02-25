@@ -1,7 +1,8 @@
 import numpy as np
 import umap
 from sklearn.decomposition import PCA
-from sklearn.metrics import silhouette_score, davies_bouldin_score
+from sklearn.metrics import silhouette_score, davies_bouldin_score, adjusted_rand_score, normalized_mutual_info_score
+from sklearn.cluster import KMeans
 
 def calculate_cluster_metrics(features, labels, sample_size=5000):
     """Tính toán các chỉ số định lượng cho độ sắc nét của các cụm đặc trưng."""
@@ -18,7 +19,16 @@ def calculate_cluster_metrics(features, labels, sample_size=5000):
     s_score = silhouette_score(X_sample, y_sample)
     db_index = davies_bouldin_score(X_sample, y_sample)
     
-    return s_score, db_index
+    # Calculate Supervised Clustering Metrics (ARI, NMI) using K-Means
+    # We use K-Means to find "natural" clusters and see how well they match ground truth
+    n_classes = len(np.unique(y_sample))
+    kmeans = KMeans(n_clusters=n_classes, n_init=10, random_state=42)
+    cluster_labels = kmeans.fit_predict(X_sample)
+    
+    ari_score = adjusted_rand_score(y_sample, cluster_labels)
+    nmi_score = normalized_mutual_info_score(y_sample, cluster_labels)
+    
+    return s_score, db_index, ari_score, nmi_score
 
 def run_pca(features, n_components=3):
     """Giảm chiều dữ liệu sử dụng PCA (Mặc định 3D)."""

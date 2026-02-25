@@ -24,12 +24,14 @@ def main():
         labels = np.load(lbl_path)
         
         # Tính toán metric (sử dụng mẫu 5000 để đảm bảo tốc độ)
-        s_score, db_score = calculate_cluster_metrics(features, labels, sample_size=5000)
+        s_score, db_score, ari_score, nmi_score = calculate_cluster_metrics(features, labels, sample_size=5000)
         
         results.append({
             "Model": model,
-            "Silhouette Score (↑)": s_score,
-            "Davies-Bouldin Index (↓)": db_score
+            "Silhouette (↑)": s_score,
+            "Davies-Bouldin (↓)": db_score,
+            "ARI (↑)": ari_score,
+            "NMI (↑)": nmi_score
         })
 
     # 2. Hiển thị báo cáo
